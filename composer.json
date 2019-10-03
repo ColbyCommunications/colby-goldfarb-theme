@@ -1,0 +1,14 @@
+{
+    "name": "colbycollege/colby-base-theme",
+    "description": "Colby's base theme",
+    "type": "wordpress-theme",
+    "keywords": [
+        "wordpress"
+    ],
+    "authors": [
+        {
+            "name": "Brandon Waltz",
+            "email": "brandon.waltz@colby.edu"
+        }
+    ]
+}
