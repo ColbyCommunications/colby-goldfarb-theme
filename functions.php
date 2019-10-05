@@ -37,7 +37,7 @@ function colby_base_script_enqueue_backend() {
             fgets(fopen($bundle_css_path, 'r')),
             [],
             '',
-            true    
+            'screen'
         );
     }
 
