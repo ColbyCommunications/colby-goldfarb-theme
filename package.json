@@ -1,0 +1,19 @@
+{
+    "name": "colby-base-theme",
+    "version": "1.0.0",
+    "description": "Colby parent theme",
+    "scripts": {
+        "start": "webpack-dev-server --config webpack.config.dev.js",
+        "build": "webpack --config webpack.config.prod.js",
+        "lint": "colby-package-lint --withphp",
+        "testphp": "./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/",
+        "testjs": "colby-package-test",
+        "test": "colby-package-test --withphp",
+        "format": "colby-package-format --withphp"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "colby-package-format --staged --withphp && colby-package-lint --staged --withphp && colby-package-test --staged --withphp"
+        }
+    }
+}
