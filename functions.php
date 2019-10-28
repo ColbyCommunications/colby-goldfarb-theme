@@ -18,10 +18,6 @@ function colby_base_localized_script () {
 }
 
 function colby_base_script_enqueue_backend() {
-
-    $bundle_js_path = '/app/web/build/js.bundle.filename';
-    $bundle_css_path = '/app/web/build/css.bundle.filename';
-
     wp_enqueue_script( 
         'colby-college',
         trailingslashit( get_template_directory_uri() ) . 'src/index.js',
@@ -31,8 +27,6 @@ function colby_base_script_enqueue_backend() {
     );
 
     colby_base_localized_script();
-    
-    
 }
 
 function colby_base_script_enqueue_frontend() {
@@ -54,65 +48,65 @@ function colby_base_script_enqueue_frontend() {
     colby_base_localized_script();
 }
 
-function colby_base_custom_error_pages()
-{
-    global $wp_query;
+// function colby_base_custom_error_pages()
+// {
+//     global $wp_query;
  
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
-    {
-        $wp_query->is_404 = FALSE;
-        $wp_query->is_page = TRUE;
-        $wp_query->is_singular = TRUE;
-        $wp_query->is_single = FALSE;
-        $wp_query->is_home = FALSE;
-        $wp_query->is_archive = FALSE;
-        $wp_query->is_category = FALSE;
-        add_filter('wp_title','custom_error_title',65000,2);
-        add_filter('body_class','custom_error_class');
-        status_header(403);
-        get_template_part('403');
-        exit;
-    }
+//     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
+//     {
+//         $wp_query->is_404 = FALSE;
+//         $wp_query->is_page = TRUE;
+//         $wp_query->is_singular = TRUE;
+//         $wp_query->is_single = FALSE;
+//         $wp_query->is_home = FALSE;
+//         $wp_query->is_archive = FALSE;
+//         $wp_query->is_category = FALSE;
+//         add_filter('wp_title','custom_error_title',65000,2);
+//         add_filter('body_class','custom_error_class');
+//         status_header(403);
+//         get_template_part('403');
+//         exit;
+//     }
  
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)
-    {
-        $wp_query->is_404 = FALSE;
-        $wp_query->is_page = TRUE;
-        $wp_query->is_singular = TRUE;
-        $wp_query->is_single = FALSE;
-        $wp_query->is_home = FALSE;
-        $wp_query->is_archive = FALSE;
-        $wp_query->is_category = FALSE;
-        add_filter('wp_title','custom_error_title',65000,2);
-        add_filter('body_class','custom_error_class');
-        status_header(401);
-        get_template_part('401');
-        exit;
-    }
-}
+//     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)
+//     {
+//         $wp_query->is_404 = FALSE;
+//         $wp_query->is_page = TRUE;
+//         $wp_query->is_singular = TRUE;
+//         $wp_query->is_single = FALSE;
+//         $wp_query->is_home = FALSE;
+//         $wp_query->is_archive = FALSE;
+//         $wp_query->is_category = FALSE;
+//         add_filter('wp_title','custom_error_title',65000,2);
+//         add_filter('body_class','custom_error_class');
+//         status_header(401);
+//         get_template_part('401');
+//         exit;
+//     }
+// }
  
-function colby_base_custom_error_title($title='',$sep='')
-{
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
-        return "Forbidden ".$sep." ".get_bloginfo('name');
+// function colby_base_custom_error_title($title='',$sep='')
+// {
+//     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
+//         return "Forbidden ".$sep." ".get_bloginfo('name');
  
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)
-        return "Unauthorized ".$sep." ".get_bloginfo('name');
-}
+//     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)
+//         return "Unauthorized ".$sep." ".get_bloginfo('name');
+// }
  
-function colby_base_custom_error_class($classes)
-{
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
-    {
-        $classes[]="error403";
-        return $classes;
-    }
+// function colby_base_custom_error_class($classes)
+// {
+//     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
+//     {
+//         $classes[]="error403";
+//         return $classes;
+//     }
  
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)
-    {
-        $classes[]="error401";
-        return $classes;
-    }
-}
+//     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)
+//     {
+//         $classes[]="error401";
+//         return $classes;
+//     }
+// }
  
-add_action('wp','colby_base_custom_error_pages');
+// add_action('wp','colby_base_custom_error_pages');
