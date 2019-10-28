@@ -15,5 +15,8 @@
         "hooks": {
             "pre-commit": "colby-package-format --staged --withphp && colby-package-lint --staged --withphp && colby-package-test --staged --withphp"
         }
+    },
+    "devDependencies": {
+        "colby-package": "^2.1.12"
     }
 }

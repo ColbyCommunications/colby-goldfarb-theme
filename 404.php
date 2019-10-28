@@ -4,7 +4,7 @@
             <div class="article-container">
                 <header><h1 class="entry-title">404 Not Found</h1></header>
                 <div class="entry-content">
-                    <p>Not Found</p>     
+                    <p>404 Not Found</p>     
                 </div>
             </div><!--.article-container -->
         </div><!--.row -->
