@@ -2,8 +2,7 @@
     "name": "colbycollege/colby-news-theme",
     "type": "wordpress-theme",
     "license": "MIT",
-    "description": "WordPress starter theme with a modern development workflow",
-    "homepage": "https://roots.io/sage/",
+    "description": "Colby WordPress starter theme with a modern development workflow",
     "authors": [
         {
             "name": "Brandon Waltz",
@@ -13,10 +12,6 @@
     "keywords": [
         "wordpress"
     ],
-    "support": {
-        "issues": "https://github.com/roots/sage/issues",
-        "forum": "https://discourse.roots.io/"
-    },
     "autoload": {
         "psr-4": {
             "App\\": "app/"
