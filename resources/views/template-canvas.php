@@ -1,5 +1,5 @@
 {{--
-    Template Name: Canvas
+    Template Name: Colby Base Theme Canvas
 --}}
 
 @extends('layouts.canvas')

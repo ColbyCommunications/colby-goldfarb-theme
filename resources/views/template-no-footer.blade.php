@@ -1,5 +1,5 @@
 {{--
-    Template Name: No Footer
+    Template Name: Colby Base Theme No Footer
 --}}
 
 @extends('layouts.no-footer')
