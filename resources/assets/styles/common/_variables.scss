@@ -1,12 +1,13 @@
 /** Import Bootstrap functions */
 @import '~bootstrap/scss/functions';
 
+$colby-blue: #002878;
+
 $theme-colors: (
-    primary: #002878,
+    primary: $colby-blue,
 );
 
-$font-family-base: franklin-gothic-compressed, sans-serif;
-// $font-size-base: 1.2rem !default;
+$font-family-base: franklin-gothic-compressed, sans-serif !default;
 
 /** Bootstrap navbar fix (https://git.io/fADqW) */
 $navbar-dark-toggler-icon-bg: none;

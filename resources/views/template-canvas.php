@@ -5,5 +5,7 @@
 @extends('layouts.canvas')
 
 @section('content')
-    @include('partials.content-page')
+    @while(have_posts()) @php the_post() @endphp
+        @include('partials.content-page')
+    @endwhile
 @endsection
