@@ -3,6 +3,20 @@ footer {
     min-height: 200px;
     margin-top: 3rem;
     color: #fff;
+    ul {
+        display: flex;
+        flex-direction: row !important;
+        li {
+            padding: 0.8rem;
+            a {
+                color: #fff;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 768px) {
