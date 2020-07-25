@@ -11,19 +11,17 @@ class Header extends Controller
         $output = get_bloginfo( 'name' );
 
         if ( has_custom_logo() ) {
+            // get the url for the image
+            $logo_url = wp_get_attachment_url(get_theme_mod( 'custom_logo' ));
 
-        // get the url for the image
-        $logo_url = wp_get_attachment_url(get_theme_mod( 'custom_logo' ));
+            // wrap in image tag, save as string
+            $logo   = '<img height=50 src="' . $logo_url . '">';
 
-        // wrap in image tag, save as string
-        $logo   = '<img height=50 src="' . $logo_url . '">';
+            // optional, hide the site name, screen reader friendly
+            $output = '<span class="sr-only">' . get_bloginfo( 'name' ) . '</span>';
 
-        // optional, hide the site name, screen reader friendly
-        $output = '<span class="sr-only">' . get_bloginfo( 'name' ) . '</span>';
-
-        // stick them together
-        $output .= $logo;
-
+            // stick them together
+            $output .= $logo;
         }
 
         return $output;

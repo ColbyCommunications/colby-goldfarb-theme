@@ -1,7 +1,6 @@
-<!doctype html>
-<html {!! get_language_attributes() !!}>
-  @include('partials.head')
-  <body @php body_class() @endphp>
+@extends('base')
+
+@section('fullbody')
     <div class="wrap container-fluid" role="document">
       <div class="content">
         <main class="main">
@@ -10,5 +9,4 @@
       </div>
     </div>
     @php wp_footer() @endphp
-  </body>
-</html>
+@endsection

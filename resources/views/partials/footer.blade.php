@@ -1,9 +1,3 @@
-<!-- <footer class="content-info">
-  <div class="container">
-    @php dynamic_sidebar('sidebar-footer') @endphp
-  </div>
-</footer> -->
-
 <footer class="in-the-news-footer d-flex">
   <div class="container d-flex align-items-center justify-content-between">
     <div><img src="{{ \App\asset_path('images/COLBY_logotype_white.png') }}" /></div>
