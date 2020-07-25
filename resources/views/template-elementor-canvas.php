@@ -1,12 +1,11 @@
 {{--
-    Template Name: Colby Base Theme Canvas
+    Template Name: Colby Base Theme Elementor Canvas
 --}}
 
-@extends('layouts.canvas')
+@extends('layouts.elementor-canvas')
 
 @section('content')
     @while(have_posts()) @php the_post() @endphp
-        @include('partials.page-header')
         @include('partials.content-page')
     @endwhile
 @endsection
