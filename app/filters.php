@@ -105,14 +105,13 @@ function colby_base_theme_sanitize_radio( $input, $setting ) {
 
 add_action( 'customize_register', function ( $wp_customize ) {
     $wp_customize->add_section( 'colby_base_theme_customize_section' , array(
-        'title'      => __( 'Colby Base Theme', 'mytheme' ),
+        'title'      => __( 'Colby Base Theme' ),
         'priority'   => 30,
     ) );
 
     $wp_customize->add_setting( 'colby_base_theme_nav_container_option', array(
         'capability' => 'edit_theme_options',
         'default' => 'container',
-        'sanitize_callback' => 'colby_base_theme_sanitize_radio',
       ) );
 
     $wp_customize->add_control( 'colby_base_theme_nav_container_option', array(
