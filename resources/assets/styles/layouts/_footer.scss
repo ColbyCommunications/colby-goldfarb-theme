@@ -1,4 +1,4 @@
-.in-the-news-footer {
+footer {
     background-color: #353535;
     min-height: 200px;
     margin-top: 3rem;
@@ -6,14 +6,14 @@
 }
 
 @media (max-width: 768px) {
-    .in-the-news-footer {
+    footer {
         > div {
             padding-top: 50px;
             padding-bottom: 50px;
             flex-direction: column;
         }
 
-        .in-the-news-footer-menu {
+        .colby-base-theme-footer-menu {
             margin-top: 20px;
         }
     }
