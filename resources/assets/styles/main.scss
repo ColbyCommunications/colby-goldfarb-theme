@@ -31,8 +31,27 @@
 .navbar {
     background-color: $colby-blue;
     margin-bottom: 1rem;
+    .nav-item {
+        .nav-link {
+            color: #fff;
+        }
+    }
+}
 
-    li > a {
-        color: #fff;
+.footer {
+    ul {
+        display: flex;
+        flex-direction: row;
+
+        li {
+            padding: 0.8rem;
+            a {
+                color: #fff;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
     }
 }

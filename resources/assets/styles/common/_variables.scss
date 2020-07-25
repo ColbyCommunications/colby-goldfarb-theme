@@ -7,7 +7,10 @@ $theme-colors: (
     primary: $colby-blue,
 );
 
-$font-family-base: franklin-gothic-compressed, sans-serif !default;
+$font-family-base: franklin-gothic-urw, sans-serif !default;
+
+/* Navbar */
+$navbar-dark-color: #fff;
 
 /** Bootstrap navbar fix (https://git.io/fADqW) */
 $navbar-dark-toggler-icon-bg: none;
