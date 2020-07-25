@@ -1,4 +1,4 @@
-@extends('base')
+@extends('layouts.base')
 
 @section('fullbody')
     <div class="wrap container" role="document">

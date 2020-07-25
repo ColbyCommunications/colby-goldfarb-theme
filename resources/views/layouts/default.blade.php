@@ -1,4 +1,4 @@
-@extends('base')
+@extends('layouts.base')
 
 @section('fullbody')
     @php do_action('get_header') @endphp
