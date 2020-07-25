@@ -2,13 +2,13 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://use.typekit.net/jcq1ite.css">
-  
+  <link rel="stylesheet" href="https://use.typekit.net/djf7stt.css">
+
   @php wp_head() @endphp
 
   <script>
-    window.ColbyNews = {
-      defaultImagePath: "@asset('images/in-the-news_default.png')",
+    window.Colby = {
+      foo: "bar",
     }
   </script>
 </head>
