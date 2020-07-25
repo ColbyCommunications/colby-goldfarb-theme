@@ -90,68 +90,33 @@ add_filter('comments_template', function ($comments_template) {
     return $comments_template;
 }, 100);
 
-function processPosts($posts) {
-    $new_posts = [];
-    foreach($posts as $post){
-        array_push($new_posts, (object) array_merge( (array) $post, (array) ['meta' => get_post_meta($post->ID), 'image' => wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full")]));
-    }
-    return $new_posts;
-}
 
-add_action( 'rest_api_init', function() {
-        
-    register_rest_route('news/v1', '/in-the-news', array(
-            'methods'  => 'GET',
-            'callback' => function() {
-                $args_featured_story = [
-                    'post_type' => 'post',
-                    'posts_per_page'=> 1,
-                    'order' => 'DESC',
-                    'orderby' => 'ID',
-                    'category' => 4,
-                    'meta_key'     => 'featured_story',
-                    'meta_value'   => 1,
-                    'meta_compare' => '=',
-                    ];
-        
-                $query_featured_story = new \WP_Query($args_featured_story);
-                $args_spotlight_stories = [
-                    'post_type' => 'post',
-                    'posts_per_page'=> 2,
-                    'order' => 'DESC',
-                    'orderby' => 'ID',
-                    'category' => 4,
-                    'meta_query' => array(
-                        'meta_key'     => 'spotlight_story',
-                        'meta_value'   => 1,
-                        'meta_compare' => '=',
-                    )
-                    ];
+function colby_base_theme_sanitize_radio( $input, $setting ) {
 
-        
-                $query_spotlight_stories = new \WP_Query($args_spotlight_stories);
+    // Ensure input is a slug.
+    $input = sanitize_key( $input );
 
-                $args_masonry_stories = [
-                    'post_type' => 'post',
-                    'posts_per_page'=> -1,
-                    'order' => 'DESC',
-                    'orderby' => 'ID',
-                    'category' => 4,
-                    'post__not_in' => [$query_featured_story->posts[0]->ID, $query_spotlight_stories->posts[0]->ID, $query_spotlight_stories->posts[1]->ID],
-                    ];
+    // Get list of choices from the control associated with the setting.
+    $choices = $setting->manager->get_control( $setting->id )->choices;
 
-                $query_masonry_stories = new \WP_Query($args_masonry_stories);
+    // If the input is a valid key, return it; otherwise, return the default.
+    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+  }
 
-                $featured_story_meta = get_post_meta($query_featured_story->posts[0]->ID);
-                
-                $results = ['data' => [
-                    'featured_story' => (object) array_merge( (array) $query_featured_story->posts[0], (array) ['meta' => $featured_story_meta, 'image' => wp_get_attachment_image_src(get_post_thumbnail_id($query_featured_story->posts[0]->ID), "full")]),
-                    'spotlight_stories' => processPosts($query_spotlight_stories->posts),
-                    'masonry_stories' => processPosts($query_masonry_stories->posts),
-                    
-                ]];
+add_action( 'customize_register', function ( $wp_customize ) {
+    $wp_customize->add_setting( 'colby_base_theme_nav_container_option', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'container',
+        'sanitize_callback' => 'colby_base_theme_sanitize_radio',
+      ) );
 
-                return $results;
-            },
-    ));
-} );
+    $wp_customize->add_control( 'colby_base_theme_nav_container_option', array(
+        'type' => 'radio',
+        'section' => 'nav',
+        'label' => __( 'Colby Base Theme Nav Container Options' ),
+        'choices' => array(
+          'container' => __( 'container' ),
+          'container_fluid' => __( 'container-fluid' ),
+        ),
+      ));
+});
