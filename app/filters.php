@@ -120,7 +120,7 @@ add_action( 'customize_register', function ( $wp_customize ) {
         'label' => __( 'Colby Base Theme Nav Container Options' ),
         'choices' => array(
           'container' => __( 'container' ),
-          'container_fluid' => __( 'container-fluid' ),
+          'container-fluid' => __( 'container-fluid' ),
         ),
       ));
 });
