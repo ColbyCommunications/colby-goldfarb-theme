@@ -1,0 +1,18 @@
+/** Import Bootstrap functions */
+@import '~bootstrap/scss/functions';
+
+$colby-blue: #002878;
+
+$theme-colors: (
+    primary: $colby-blue,
+);
+
+$font-family-base: franklin-gothic-urw, sans-serif !default;
+
+/* Navbar */
+$navbar-dark-color: #fff;
+$navbar-dark-toggler-border-color: #fff;
+
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;
