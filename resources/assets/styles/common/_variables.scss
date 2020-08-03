@@ -2,6 +2,7 @@
 @import '~bootstrap/scss/functions';
 
 $colby-blue: #002878;
+$navbar-text-color: #fff;
 
 $theme-colors: (
     primary: $colby-blue,
@@ -10,8 +11,11 @@ $theme-colors: (
 $font-family-base: franklin-gothic-urw, sans-serif !default;
 
 /* Navbar */
-$navbar-dark-color: #fff;
-$navbar-dark-toggler-border-color: #fff;
+$navbar-dark-color: $navbar-text-color !default;
+$navbar-dark-toggler-border-color: $navbar-text-color !default;
+$dropdown-bg: $colby-blue;
+$dropdown-color: $navbar-text-color !default;
+$dropdown-border-color: $colby-blue !default;
 
 /** Bootstrap navbar fix (https://git.io/fADqW) */
 $navbar-dark-toggler-icon-bg: none;
