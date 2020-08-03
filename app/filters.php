@@ -109,6 +109,7 @@ add_action( 'customize_register', function ( $wp_customize ) {
         'priority'   => 30,
     ) );
 
+    // Navbar container option
     $wp_customize->add_setting( 'colby_base_theme_nav_container_option', array(
         'capability' => 'edit_theme_options',
         'default' => 'container',
@@ -122,5 +123,21 @@ add_action( 'customize_register', function ( $wp_customize ) {
           'container' => __( 'container' ),
           'container-fluid' => __( 'container-fluid' ),
         ),
-      ));
+    ));
+
+    // Navbar type option
+    $wp_customize->add_setting( 'colby_base_theme_nav_type_option', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'default',
+      ) );
+
+    $wp_customize->add_control( 'colby_base_theme_nav_type_option', array(
+        'type' => 'radio',
+        'section' => 'colby_base_theme_customize_section',
+        'label' => __( 'Colby Base Theme Nav Type Options' ),
+        'choices' => array(
+          'default' => __( 'Default: Dropdown' ),
+          'colby-base-theme-slide-menu' => __( 'Slide from Right' ),
+        ),
+    ));
 });
