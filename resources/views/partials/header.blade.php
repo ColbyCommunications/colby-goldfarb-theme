@@ -1,7 +1,7 @@
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark {!! Header::getNavTypeOption() !!}">
   <div class="{!! Header::getNavContainerOption() !!}">
     <a class="navbar-brand" href="https://www.colby.edu">{!! Header::getBrand() !!}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     @if (has_nav_menu('primary_navigation'))

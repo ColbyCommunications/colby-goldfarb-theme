@@ -31,4 +31,9 @@ class Header extends Controller
     {
         return get_theme_mod('colby_base_theme_nav_container_option', 'container');
     }
+
+    public static function getNavTypeOption()
+    {
+        return get_theme_mod('colby_base_theme_nav_type_option', 'default');
+    }
 }
