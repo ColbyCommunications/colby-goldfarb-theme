@@ -13,6 +13,8 @@ $font-family-base: franklin-gothic-urw, sans-serif !default;
 /* Navbar */
 $navbar-dark-color: $navbar-text-color !default;
 $navbar-dark-toggler-border-color: $navbar-text-color !default;
+$dropdown-color: $colby-blue !default;
+$dropdown-link-hover-color: $colby-blue !default;
 
 /** Bootstrap navbar fix (https://git.io/fADqW) */
 $navbar-dark-toggler-icon-bg: none;
