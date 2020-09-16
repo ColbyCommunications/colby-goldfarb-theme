@@ -1,0 +1,34 @@
+section.equal-height div.elementor-widget-wrap > div {
+    display: flex;
+    height: 100%;
+    a.elementor-cta {
+        @include flex;
+        @include flex-direction( column );
+        height: 100%;
+        .elementor-cta__content {
+            flex-grow: 1;
+            align-content: flex-start;
+        }
+    }
+}
+
+.elementor-widget-container {
+    .elementor-text-editor {
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.elementor-widget-call-to-action {
+    .elementor-cta__content {
+        border-top: solid 4px #ffffff;
+        &:before {
+            content: '';
+            @include arrow(bottom, #ffffff, 12px);
+            position: absolute;
+            left: calc(50% - 6px);
+            top: 0;
+        }
+    }
+}
