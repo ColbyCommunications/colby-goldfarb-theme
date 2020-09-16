@@ -22,13 +22,29 @@ section.equal-height div.elementor-widget-wrap > div {
 
 .elementor-widget-call-to-action {
     .elementor-cta__content {
-        border-top: solid 4px #ffffff;
+        border-top: solid 7px #ffffff;
         &:before {
             content: '';
             @include arrow(bottom, #ffffff, 12px);
             position: absolute;
             left: calc(50% - 6px);
             top: 0;
+        }
+    }
+}
+
+.header-line {
+    h1, h2, h3, h4, h5 {
+        overflow: hidden;
+        &:after {
+            content: '';
+            display: inline-block;
+            height: 0.5em;
+            vertical-align: bottom;
+            width: 100%;
+            margin-right: -100%;
+            margin-left: 10px;
+            border-top: 1px solid #cacaca;
         }
     }
 }
