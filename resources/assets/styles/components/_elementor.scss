@@ -36,14 +36,26 @@ section.equal-height div.elementor-widget-wrap > div {
 .header-line {
     h1, h2, h3, h4, h5 {
         overflow: hidden;
-        &:after {
+        &:before {
             content: '';
+            position: relative;
+            right: 10px;
             display: inline-block;
             height: 0.5em;
             vertical-align: bottom;
             width: 100%;
+            margin-left: -100%;
+            border-top: 1px solid #cacaca;
+        }
+        &:after {
+            content: '';
+            display: inline-block;
+            position: relative;
+            left: 10px;
+            height: 0.5em;
+            vertical-align: bottom;
+            width: 100%;
             margin-right: -100%;
-            margin-left: 10px;
             border-top: 1px solid #cacaca;
         }
     }
