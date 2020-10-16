@@ -21,6 +21,11 @@ section.equal-height div.elementor-widget-wrap > div {
 }
 
 .elementor-widget-call-to-action {
+    a.elementor-cta {
+        &:hover {
+            text-decoration: none;
+        }
+    }
     .elementor-cta__content {
         border-top: solid 7px #ffffff;
         &:before {
