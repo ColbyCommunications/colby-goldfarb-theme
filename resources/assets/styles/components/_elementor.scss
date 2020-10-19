@@ -61,6 +61,7 @@ section.equal-height div.elementor-widget-wrap > div {
 .header-line {
     h1, h2, h3, h4, h5 {
         overflow: hidden;
+        line-height: 1.1em;
         &:before {
             content: '';
             position: relative;
