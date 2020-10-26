@@ -27,9 +27,10 @@ add_action('wp_enqueue_scripts', function () {
 add_action('after_setup_theme', function () {
     add_theme_support('custom-logo', [
         // whatever settings
-        'height' => 150,
-        'width' => 150,
+        'height' => 256,
+        'width' => 86,
         'flex-width' => true,
+        'flex-height' => true,
       ]);
     /**
      * Enable features from Soil when plugin is activated
