@@ -3,7 +3,7 @@
 /*
     Template Name: Template Annual Report
 */
-    
+
 get_header();
 
 // Annual Report Hero Fields
@@ -35,12 +35,12 @@ $annual_report_hero_cta = get_field('annual_report_hero_cta');
                 </div>
                 <div class="hero-background-shape"></div>
             </div>
-           
+
         </div>
     </div>
 </section>
 
-<?php 
+<?php
 
 
 // Letter From The Executive Fields
@@ -78,7 +78,7 @@ $letter_section_text = get_field('letter_section_text');
     <div class="yellow-circle-ornanament"></div>
 </section>
 
-<?php 
+<?php
 
 // Annual Theme Overview  Fields
 $annual_theme_overview_title = get_field('annual_theme_overview_title');
@@ -159,10 +159,10 @@ $goldfarb_center_virtual_events_header = get_field('goldfarb_center_virtual_even
         <div class="inner__wrapper">
             <h3><?php echo $goldfarb_center_virtual_events_header ?></h3>
         </div>
-       
+
         <!-- Swiper -->
         <?php if( have_rows('goldfarb_center_virtual_events_carousel') ): ?>
-       
+
         <div class="gf-slider__wrapper">
             <div class="swiper-container gfSwiperOne">
                 <div class="gf-slider-arrows">
@@ -170,15 +170,15 @@ $goldfarb_center_virtual_events_header = get_field('goldfarb_center_virtual_even
                     <div class="swiper-button-prev gf-prev-one"></div>
                 </div>
                 <div class="swiper-wrapper">
-                    
-                    <?php 
-                    
-                    while ( have_rows('goldfarb_center_virtual_events_carousel') ) : the_row(); 
+
+                    <?php
+
+                    while ( have_rows('goldfarb_center_virtual_events_carousel') ) : the_row();
 
                     $virtual_events_blockquote = get_sub_field('virtual_events_blockquote');
                     $virtual_events_attribution_name = get_sub_field('virtual_events_attribution_name');
                     $virtual_events_attribution_text = get_sub_field('virtual_events_attribution_text');
-                    
+
                     ?>
 
                     <!-- Slide -->
@@ -210,19 +210,19 @@ $goldfarb_center_virtual_events_header = get_field('goldfarb_center_virtual_even
 
         <div class="container gf-cards-container">
             <div class="row">
-                   
-                <?php foreach( $virtual_events_posts as $post ): 
+
+                <?php foreach( $virtual_events_posts as $post ):
 
                 // Setup this post for WP functions (variable must be named $post).
-                setup_postdata($post); 
-                
+                setup_postdata($post);
+
                 $is_featured_post = get_field('is_featured_post');
                 $lightbox_you_tube_embed_code = get_field('lightbox_you_tube_embed_code');
                 $gf_event_date = get_field('gf_event_date');
 
 
                 $cats = get_the_category(get_the_ID());
-                
+
                 ?>
 
                 <?php if($is_featured_post == false): ?>
@@ -265,24 +265,24 @@ $goldfarb_center_virtual_events_header = get_field('goldfarb_center_virtual_even
                         <h4><?php the_title(); ?></h4>
                         <?php the_excerpt(); ?>
                         <div class="gf-inner-link-wrapper">
-                            <a href="#" 
-                               onClick="fireGfModal(this.id); event.preventDefault();" 
-                               id="gf-event-trigger-<?php echo get_the_id(); ?>" 
-                               class="btn-underline" data-title="<?php the_title() ?>" 
-                               data-ev-date="<?php echo $gf_event_date; ?>" 
-                               data-content="<?php the_content(); ?>" 
+                            <a href="#"
+                               onClick="fireGfModal(this.id); event.preventDefault();"
+                               id="gf-event-trigger-<?php echo get_the_id(); ?>"
+                               class="btn-underline" data-title="<?php the_title() ?>"
+                               data-ev-date="<?php echo $gf_event_date; ?>"
+                               data-content="<?php the_content(); ?>"
                                data-yt-id="<?php echo $lightbox_you_tube_embed_code; ?>" >Learn More</a>
                         </div>
-                    </div>  
+                    </div>
                 </div>
 
-                
+
                 <?php endif; ?>
 
 
                 <?php endforeach; ?>
-                   
-                    <?php 
+
+                    <?php
                     // Reset the global post object so that the rest of the page works correctly.
                     wp_reset_postdata(); ?>
                 <?php endif; ?>
@@ -348,14 +348,14 @@ $student_leadership_text = get_field('student_leadership_text');
             </div>
             <div class="swiper-wrapper">
 
-                <?php 
-                
-                    while ( have_rows('student_leadership_carousel') ) : the_row(); 
+                <?php
+
+                    while ( have_rows('student_leadership_carousel') ) : the_row();
 
                     $student_leadership_image = get_sub_field('student_leadership_images');
                     $student_leadership_blockquote = get_sub_field('student_leadership_blockquote');
                     $student_leadership_cta_link = get_sub_field('student_leadership_cta_link');
-                
+
                 ?>
 
                 <!-- Slide -->
@@ -401,13 +401,13 @@ $student_leadership_text = get_field('student_leadership_text');
 
     <?php if( have_rows('student_leadership_info_block') ): ?>
         <div class="container">
-            <?php 
-                
-                while ( have_rows('student_leadership_info_block') ) : the_row(); 
+            <?php
+
+                while ( have_rows('student_leadership_info_block') ) : the_row();
 
                 $student_leadership_info_block_image = get_sub_field('student_leadership_info_block_image');
                 $student_leadership_blockquote = get_sub_field('student_leadership_blockquote');
-            
+
             ?>
 
             <div class="row student-leadership-column">
@@ -473,13 +473,13 @@ $student_internships_stat_caption = get_field('student_internships_stat_caption'
     <?php if( have_rows('student_internships_list') ): ?>
         <!-- Internship List -->
         <ul class="container gf-dot-list">
-            <?php 
-                
-                while ( have_rows('student_internships_list') ) : the_row(); 
+            <?php
+
+                while ( have_rows('student_internships_list') ) : the_row();
 
                 $student_internships_list_title = get_sub_field('student_internships_list_title');
                 $student_internships_list_text = get_sub_field('student_internships_list_text');
-            
+
             ?>
 
             <!-- Internship -->
@@ -580,7 +580,7 @@ $faculty_engagement_research_posts = get_field('faculty_engagement_research_post
                     </p>
                 </div>
             </div>
-           
+
         </div>
     </div>
     <!-- Cards -->
@@ -590,15 +590,15 @@ $faculty_engagement_research_posts = get_field('faculty_engagement_research_post
             <?php
             $faculty_engaugement_posts = get_field('faculty_engagement_research_posts');
             if( $faculty_engaugement_posts ): ?>
-               
-                <?php foreach( $faculty_engaugement_posts as $post ): 
+
+                <?php foreach( $faculty_engaugement_posts as $post ):
 
                 $lightbox_you_tube_embed_code = get_field('lightbox_you_tube_embed_code');
                 $gf_event_date = get_field('gf_event_date');
                 $cats = get_the_category(get_the_ID());
 
                 setup_postdata($post); ?>
-                
+
                     <!-- Cards -->
                     <div class="col-md-4">
                         <article class="gf-card">
@@ -616,12 +616,12 @@ $faculty_engagement_research_posts = get_field('faculty_engagement_research_post
                     </div>
 
                 <?php endforeach; ?>
-                
-                <?php 
+
+                <?php
                 // Reset the global post object so that the rest of the page works correctly.
                 wp_reset_postdata(); ?>
             <?php endif; ?>
-         
+
         </div>
     </div>
     <div class="yellow-circle-ornanament"></div>
