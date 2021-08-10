@@ -1,16 +1,3 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Bootscore
- */
-
-?>
-
 <footer class="gf-annual-report-footer">
     <div class="container">
        <div class="row">
@@ -54,9 +41,9 @@ E: goldfarb@colby.edu</p>
         <p>&copy; Copyright – 2021, Goldfarb Center for Public Affairs at Colby &nbsp<a href="https://glantz.net" target="blank">Site by Glantz</a>
     </div>
 </footer>
-<?php wp_footer(); ?>
+
 </div>
-<!-- Virtual Event Modal -->
+{{-- Virtual Event Modal --}}
 <div class="gf-virtual-event-modal">
     <a href="#" class="gf-close-modal">CLOSE <i class="fas fa-times"></i></a>
     <div class="gf-virtual-event-inner__wrapper">
@@ -68,5 +55,4 @@ E: goldfarb@colby.edu</p>
         <div id="gf-modal-content" class="gf-scroll-box"></div>
     </div>
 </div>
-</body>
-</html>
+
