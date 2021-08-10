@@ -501,4 +501,5 @@
         </div>
         <div class="yellow-circle-ornanament"></div>
     </section>
+    @php wp_footer() @endphp
 @endsection
