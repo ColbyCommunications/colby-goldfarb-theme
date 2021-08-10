@@ -3,10 +3,10 @@
   @include('partials.head-annual-report')
   <body @php body_class() @endphp>
     <div class="template__wrapper">
-        @php do_action('get_header', 'header-annual-report') @endphp
+        @php do_action('get_header') @endphp
         @include('partials.header-annual-report')
-            @yield('content')
-        @php do_action('get_footer', 'footer-annual-report') @endphp
+        @yield('content')
+        @php do_action('get_footer') @endphp
         @include('partials.footer-annual-report')
         @php wp_footer() @endphp
     <div>
