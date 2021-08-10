@@ -16,13 +16,28 @@ class TemplateReview extends Controller
         $annual_report_hero_text = get_field('annual_report_hero_text');
         $annual_report_hero_cta = get_field('annual_report_hero_cta');
 
+        // Letter From The Executive Fields
+        $letter_section_title = get_field('letter_section_title');
+        $letter_section_image = get_field('letter_section_image');
+        $letter_section_image_attribution_title = get_field('letter_section_image_attribution_title');
+        $letter_section_image_attribution_text = get_field('letter_section_image_attribution_text');
+        $letter_section_text = get_field('letter_section_text');
+
+        // Annual Theme Overview  Fields
+        $annual_theme_overview_title = get_field('annual_theme_overview_title');
+        $annual_theme_overview_text = get_field('annual_theme_overview_text');
+        $annual_theme_overview_stat_number = get_field('annual_theme_overview_stat_number');
+        $annual_theme_overview_stat_number_caption = get_field('annual_theme_overview_stat_number_caption');
+        $annual_theme_overview_attribution_box_text = get_field('annual_theme_overview_attribution_box_text');
+        $annual_theme_overview_attribution_name = get_field('annual_theme_overview_attribution_name');
+        $annual_theme_overview_attribution_caption = get_field('annual_theme_overview_attribution_caption');
+
+        // Virtual Event Fields
         $goldfarb_center_virtual_events_title = get_field('goldfarb_center_virtual_events_title');
         $goldfarb_center_virtual_events_header = get_field('goldfarb_center_virtual_events_header');
-
         $virtual_events_blockquote = get_sub_field('virtual_events_blockquote');
         $virtual_events_attribution_name = get_sub_field('virtual_events_attribution_name');
         $virtual_events_attribution_text = get_sub_field('virtual_events_attribution_text');
-
         $virtual_events_posts = get_field('goldfarb_center_virtual_events_post_selector');
 
         $is_featured_post = get_field('is_featured_post');
@@ -76,12 +91,42 @@ class TemplateReview extends Controller
         $annual_theme_policy_symposium_attribution_caption = get_field('annual_theme_policy_symposium_attribution_caption');
 
         return [
+            // Annual Report Hero Fields
             "annual_report_hero_image" => $annual_report_hero_image,
             "annual_report_hero_subtitle" => $annual_report_hero_subtitle,
             "annual_report_hero_years" => $annual_report_hero_years,
             "annual_report_hero_title" => $annual_report_hero_title,
             "annual_report_hero_text" => $annual_report_hero_text,
-            "annual_report_hero_cta" => $annual_report_hero_cta
+            "annual_report_hero_cta" => $annual_report_hero_cta,
+
+            // Letter From The Executive Fields
+            "letter_section_title" => $letter_section_title,
+            "letter_section_image" => $letter_section_image,
+            "letter_section_image_attribution_title" => $letter_section_image_attribution_title,
+            "letter_section_image_attribution_text" => $letter_section_image_attribution_text,
+            "letter_section_text" => $letter_section_text,
+
+            // Annual Theme Overview Fields
+            "annual_theme_overview_title" => $annual_theme_overview_title,
+            "annual_theme_overview_text" => $annual_theme_overview_text,
+            "annual_theme_overview_stat_number" => $annual_theme_overview_stat_number,
+            "annual_theme_overview_stat_number_caption" => $annual_theme_overview_stat_number_caption,
+            "annual_theme_overview_attribution_box_text" => $annual_theme_overview_attribution_box_text,
+            "annual_theme_overview_attribution_name" => $annual_theme_overview_attribution_name,
+            "annual_theme_overview_attribution_caption" => $annual_theme_overview_attribution_caption,
+
+
+            // Virtual Event Fields
+            "goldfarb_center_virtual_events_title" => $goldfarb_center_virtual_events_title,
+            "goldfarb_center_virtual_events_header" => $goldfarb_center_virtual_events_header,
+            "virtual_events_blockquote" => $virtual_events_blockquote,
+            "virtual_events_attribution_name" => $virtual_events_attribution_name,
+            "virtual_events_attribution_text" => $virtual_events_attribution_text,
+            "virtual_events_posts" => $virtual_events_posts,
+
+            "is_featured_post" => $is_featured_post,
+            "lightbox_you_tube_embed_code" => $lightbox_you_tube_embed_code,
+            "gf_event_date" => $gf_event_date
         ];
     }
 }
