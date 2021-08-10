@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html {!! get_language_attributes() !!}>
 
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -8,11 +8,11 @@
     <!-- Adobe Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/wcz1udr.css">
 
-    <?php wp_head(); ?>
+    @php wp_head() @endphp
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 </head>
 
-<body <?php body_class(); ?>>
+<body @php body_class() @endphp>
 <!-- Annual Navbar -->
 <div class="template__wrapper">
 <ul id="gf-nav-menu" class="gf-nav-menu">
@@ -43,3 +43,9 @@
         </a>
     </div>
 </header>
+@yield('content')
+@php do_action('get_footer') @endphp
+    @include('partials.footer-annual-report')
+    @php wp_footer() @endphp
+</body>
+</html>

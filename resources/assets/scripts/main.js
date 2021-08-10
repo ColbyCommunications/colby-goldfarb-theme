@@ -11,7 +11,7 @@ import Router from './util/Router';
 import common from './routes/common';
 import home from './routes/home';
 import aboutUs from './routes/about';
-// import pageTemplateTemplateReview from './routes/pageTemplateTemplateReview';
+import pageTemplateTemplateReview from './routes/pageTemplateTemplateReview';
 
 if (module.hot) {
     module.hot.accept();
@@ -27,7 +27,7 @@ const routes = new Router({
     aboutUs,
 
     // Glantz 2020 Annual Report
-    // pageTemplateTemplateReview,
+    pageTemplateTemplateReview,
 });
 
 // Load Events
