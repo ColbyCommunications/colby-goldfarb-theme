@@ -46,6 +46,7 @@ class TemplateReview extends Controller
 
         $cats = get_the_category(get_the_ID());
 
+        // Student Leadership Fields
         $student_leadership_title = get_field('student_leadership_title');
         $student_leadership_header = get_field('student_leadership_header');
         $student_leadership_text = get_field('student_leadership_text');
@@ -126,7 +127,21 @@ class TemplateReview extends Controller
 
             "is_featured_post" => $is_featured_post,
             "lightbox_you_tube_embed_code" => $lightbox_you_tube_embed_code,
-            "gf_event_date" => $gf_event_date
+            "gf_event_date" => $gf_event_date,
+
+            "cats" => $cats,
+
+            // Student Leadership Fields
+            "student_leadership_title" => $student_leadership_title,
+            "student_leadership_header" => $student_leadership_header,
+            "student_leadership_text" => $student_leadership_text,
+
+            "student_leadership_image" => $student_leadership_image,
+            "student_leadership_blockquote" => $student_leadership_blockquote,
+            "student_leadership_cta_link" => $student_leadership_cta_link,
+
+            "student_leadership_info_block_image" => $student_leadership_info_block_image,
+            "student_leadership_blockquote" => $student_leadership_blockquote,
         ];
     }
 }
