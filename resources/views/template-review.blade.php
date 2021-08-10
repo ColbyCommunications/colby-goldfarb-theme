@@ -16,7 +16,6 @@
         <div class="container">
             <div class="inner__content">
                 <div class="gf-tagline">
-                    <h1>Test Push To Annual Branch</h1>
                     <div class="gf-hero-headline">{{ $data['annual_report_hero_subtitle'] }}</div>
                     <div class="gf-rule"></div>
                     <div class="gf-hero-headline">{{ $data['annual_report_hero_years'] }}</div>
