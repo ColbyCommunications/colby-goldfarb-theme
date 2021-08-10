@@ -1,5 +1,3 @@
-
-<div class="template__wrapper">
 <ul id="gf-nav-menu" class="gf-nav-menu">
     <li class="gf-nav__item"><a href="#gf_image_text_section">Letter From The Executive Director</a></li>
     <li class="gf-nav__item"><a href="#annual_overview">ANNUAL THEME OVERVIEW</a></li>
