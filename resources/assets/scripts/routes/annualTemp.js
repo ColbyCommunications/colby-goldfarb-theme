@@ -13,7 +13,7 @@
             navElement.addEventListener('click', (e) => {
                 menuDrawer.classList.toggle('gf-menu-active');
             });
-        });
+        }); 
 
         return false;
     }

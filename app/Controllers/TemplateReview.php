@@ -142,6 +142,12 @@ class TemplateReview extends Controller
 
             "student_leadership_info_block_image" => $student_leadership_info_block_image,
             "student_leadership_blockquote" => $student_leadership_blockquote,
+
+            "student_internships_title" => $student_internships_title,
+            "student_internships_heading" => $student_internships_heading,
+            "student_internships_text" => $student_internships_text,
+            "student_internships_stat_number" => $student_internships_stat_number,
+            "student_internships_stat_caption" => $student_internships_stat_caption,
         ];
     }
 }
