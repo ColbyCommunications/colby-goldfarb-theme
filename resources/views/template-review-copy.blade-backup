@@ -2,14 +2,12 @@
     Template Name: Glantz: 2020 Annual Report
 --}}
 
-@extends('layouts.base')
+@extends('layouts.annual-report-2020')
 
-@section('fullbody')
+@section('content')
     @php
         $data = TemplateReview::data();
     @endphp
-
-    @include('partials.header-annual-report')
 
     {{-- Annual Report Hero --}}
     <section class="gf-intro-hero" style="background-image:url('{{ $data['annual_report_hero_image'] }}')">
@@ -34,7 +32,6 @@
             </div>
         </div>
     </section>
-
     {{-- Letter From The Executive --}}
     <section id="gf_image_text_section" class="gf-image-text-section">
         <div class="container">
@@ -504,6 +501,4 @@
         </div>
         <div class="yellow-circle-ornanament"></div>
     </section>
-
-    @include('partials.footer-annual-report')
 @endsection
