@@ -9,12 +9,12 @@ class TemplateReview extends Controller
     public function data()
     {
         // Annual Report Hero Fields
-        $annual_report_hero_image = get_field('annual_report_hero_image');
-        $annual_report_hero_subtitle = get_field('annual_report_hero_subtitle');
-        $annual_report_hero_years = get_field('annual_report_hero_years');
-        $annual_report_hero_title = get_field('annual_report_hero_title');
-        $annual_report_hero_text = get_field('annual_report_hero_text');
-        $annual_report_hero_cta = get_field('annual_report_hero_cta');
+        // $annual_report_hero_image = get_field('annual_report_hero_image');
+        // $annual_report_hero_subtitle = get_field('annual_report_hero_subtitle');
+        // $annual_report_hero_years = get_field('annual_report_hero_years');
+        // $annual_report_hero_title = get_field('annual_report_hero_title');
+        // $annual_report_hero_text = get_field('annual_report_hero_text');
+        // $annual_report_hero_cta = get_field('annual_report_hero_cta');
 
         // // Letter From The Executive Fields
         // $letter_section_title = get_field('letter_section_title');
@@ -93,12 +93,12 @@ class TemplateReview extends Controller
 
         return [
             // Annual Report Hero Fields
-            "annual_report_hero_image" => $annual_report_hero_image,
-            "annual_report_hero_subtitle" => $annual_report_hero_subtitle,
-            "annual_report_hero_years" => $annual_report_hero_years,
-            "annual_report_hero_title" => $annual_report_hero_title,
-            "annual_report_hero_text" => $annual_report_hero_text,
-            "annual_report_hero_cta" => $annual_report_hero_cta,
+            // "annual_report_hero_image" => $annual_report_hero_image,
+            // "annual_report_hero_subtitle" => $annual_report_hero_subtitle,
+            // "annual_report_hero_years" => $annual_report_hero_years,
+            // "annual_report_hero_title" => $annual_report_hero_title,
+            // "annual_report_hero_text" => $annual_report_hero_text,
+            // "annual_report_hero_cta" => $annual_report_hero_cta,
 
             // Letter From The Executive Fields
             // "letter_section_title" => $letter_section_title,
