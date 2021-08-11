@@ -101,4 +101,61 @@
         </div>
     </section>
 
+    {{-- Franko-Maisel Prize --}}
+    <section class="gf-image-text-section gf-franko-maisel" id="gf_franko_maisel">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 order-md-2">
+                    <h2>{{ $data['franko_maisel_prize_title'] }}</h2>
+                    <h3>{{ $data['franko_maisel_prize_header'] }}</h3>
+                    {{ $data['franko_maisel_prize_text'] }}
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <div class="gf-image-wrapper">
+                        <div class="gf-image" style="background-image:url('{{ $data['$franko_maisel_prize_image']['url']}}" aria-label="{{ $data['franko_maisel_prize_image']['alt'] }}"></div>
+                        <div class="gf-image-bg-shape"></div>
+                    </div>
+                    <div class="gf-title-box">
+                        <p class="gf-attribution-name">{{ $data['franko_maisel_prize_attiribution'] }}<p>
+                        <div class="gf-attribution-aff">
+                            {!! $data['franko_maisel_prize_attribution_caption'] !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yellow-circle-ornanament"></div>
+    </section>
+
+    {{-- Annual Theme & Policy Symposium --}}
+    <section class="policy-symposium" id="policy_symposium">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-7">
+                    <h2>{{ $data['annual_theme_policy_symposium_title'] }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="gf-featured-image-container">
+                <div class="gf-featured-image" style="background-image:url('{{ $data['$annual_theme_policy_symposium_featured_image']['url'] }}')" aria-label="{{ $data['annual_theme_policy_symposium_featured_image']['alt'] }}"></div>
+                <div class="gf-feautured-image-bg"></div>
+            </div>
+            <h3>{{ $data['annual_theme_policy_symposium_heading'] }}</h3>
+            <div class="row">
+                <div class="col-md-8">
+                {{ $data['annual_theme_policy_symposium_text'] }}
+                </div>
+                <div class="col-md-4">
+                    <div class="gf-image-wrapper">
+                        <div class="gf-image" style="background-image:url('{{ $data['annual_theme_policy_symposium_sidebar_image']['url'] }}')" aria-label="{{ $data['annual_theme_policy_symposium_sidebar_image']['alt'] }}"></div>
+                        <div class="gf-image-bg-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yellow-circle-ornanament"></div>
+    </section>
+
 @endsection
