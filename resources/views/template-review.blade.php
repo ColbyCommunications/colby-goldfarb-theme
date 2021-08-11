@@ -112,7 +112,7 @@
                 </div>
                 <div class="col-md-5 order-md-1">
                     <div class="gf-image-wrapper">
-                        <div class="gf-image" style="background-image:url('{{ $data['$franko_maisel_prize_image']['url']}}" aria-label="{{ $data['franko_maisel_prize_image']['alt'] }}"></div>
+                        <div class="gf-image" style="background-image:url('{{ $data['$franko_maisel_prize_image']['url'] }}')" aria-label="{{ $data['franko_maisel_prize_image']['alt'] }}"></div>
                         <div class="gf-image-bg-shape"></div>
                     </div>
                     <div class="gf-title-box">
