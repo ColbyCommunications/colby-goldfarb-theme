@@ -108,7 +108,7 @@
                 <div class="col-md-7 order-md-2">
                     <h2>{{ $data['franko_maisel_prize_title'] }}</h2>
                     <h3>{{ $data['franko_maisel_prize_header'] }}</h3>
-                    {{ $data['franko_maisel_prize_text'] }}
+                    {!! $data['franko_maisel_prize_text'] !!}
                 </div>
                 <div class="col-md-5 order-md-1">
                     <div class="gf-image-wrapper">
@@ -145,7 +145,7 @@
             <h3>{{ $data['annual_theme_policy_symposium_heading'] }}</h3>
             <div class="row">
                 <div class="col-md-8">
-                {{ $data['annual_theme_policy_symposium_text'] }}
+                {!! $data['annual_theme_policy_symposium_text'] !!}
                 </div>
                 <div class="col-md-4">
                     <div class="gf-image-wrapper">
