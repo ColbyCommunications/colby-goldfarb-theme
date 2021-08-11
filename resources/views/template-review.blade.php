@@ -101,6 +101,54 @@
         </div>
     </section>
 
+    {{-- Student Internships --}}
+    <section class="gf-student-internships" id="gf_student_internships">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-7">
+                    <h2>{{ $data['student_internships_title'] }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="inner__wrapper">
+                        <h3>{{ $data['student_internships_heading'] }}</h3>
+                        {!! $data['student_internships_text'] !!}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <span class="gf-big-number">
+                        {{ $data['student_internships_stat_number'] }}
+                    </span>
+                    <div class="gf-attribution-aff">
+                        {!!$data['student_internships_stat_caption'] !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if( have_rows($data['student_internships_list']) )
+            {{-- Internship List --}}
+            <ul class="container gf-dot-list">
+                @while ( have_rows($data['student_internships_list']) )
+                    {{-- Internship --}}
+                    <li class="row gf-list-item">
+                        <div class="col-md-3">
+                            <h4>{{ $data['student_internships_list_title'] }}</h4>
+                        </div>
+                        <div class="col-md-9">
+                            {!! $data['student_internships_list_text'] !!}
+                        </div>
+                    </li>
+                @endwhile
+            </ul>
+        @endif
+        <div class="yellow-circle-ornanament"></div>
+    </section>
+
     {{-- Franko-Maisel Prize --}}
     <section class="gf-image-text-section gf-franko-maisel" id="gf_franko_maisel">
         <div class="container">
