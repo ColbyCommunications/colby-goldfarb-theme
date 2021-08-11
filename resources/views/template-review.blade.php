@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="col-md-7 order-md-2">
                     <h2>{{ $data['letter_section_title'] }}</h2>
-                    {{ $data['letter_section_text'] }}
+                    {!! $data['letter_section_text'] !!}
                 </div>
                 <div class="col-md-5 order-md-1">
                     <div class="gf-image-wrapper">
@@ -48,7 +48,7 @@
                     <div class="gf-title-box">
                         <p class="gf-attribution-name">{{ $data['letter_section_image_attribution_title'] }}<p>
                         <div class="gf-attribution-aff">
-                            {{ $data['letter_section_image_attribution_text'] }}
+                            {!! $data['letter_section_image_attribution_text'] !!}
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="inner__wrapper">
-                        {{ $data['annual_theme_overview_text'] }}
+                        {!! $data['annual_theme_overview_text'] !!}
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -79,7 +79,7 @@
                         {{ $data['annual_theme_overview_stat_number'] }}
                     </span>
                     <div class="gf-attribution-aff">
-                        {{ $data['annual_theme_overview_stat_number_caption'] }}
+                        {!! $data['annual_theme_overview_stat_number_caption'] !!}
                     </div>
                     <div class="gf-fancy-text-wrapper">
                         <div class="gf-fancy-text">
@@ -92,7 +92,7 @@
                     <div class="gf-title-box">
                         <p class="gf-attribution-name">{{ $data['annual_theme_overview_attribution_name'] }}<p>
                         <div class="gf-attribution-aff">
-                            {{ $data['annual_theme_overview_attribution_caption'] }}
+                            {!! $data['annual_theme_overview_attribution_caption'] !!}
                         </div>
                     </div>
 
