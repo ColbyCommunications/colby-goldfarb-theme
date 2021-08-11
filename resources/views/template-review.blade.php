@@ -101,6 +101,97 @@
         </div>
     </section>
 
+    {{-- Student Leadership --}}
+    <section class="gf-student-leadership" id="gf_student_leadership">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-7">
+                    <h2>{{ $data['student_leadership_title'] }}</h2>
+                </div>
+            </div>
+        </div>
+        {{-- Intro Text --}}
+        <div class="container gf-intro-text">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>{{ $data['student_leadership_header'] }}</h3>
+                    <p>{!! $data['student_leadership_text'] !!}</p>
+                </div>
+            </div>
+        </div>
+        {{-- Slider Section --}}
+        <div class="container">
+            {{-- Swiper --}}
+            @if( have_rows($data['student_leadership_carousel']) )
+                <div class="gf-slider__wrapper">
+                    <div class="swiper-container gfSwiperTwo">
+                        <div class="gf-slider-arrows">
+                            <div class="swiper-button-next gf-next-two"></div>
+                            <div class="swiper-button-prev gf-prev-two"></div>
+                        </div>
+                        <div class="swiper-wrapper">
+                            @while ( have_rows($data['student_leadership_carousel']) )
+                                {{-- Slide --}}
+                                <div class="swiper-slide">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="gf-image-wrapper">
+                                                <div class="gf-image" style="background-image:url('{{ $data['student_leadership_image']['url'] }}')"  aria-label="{{ $data['student_leadership_image']['alt']}}"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <blockquote class="gf-blockquote">
+                                                {{ $data['student_leadership_blockquote'] }}
+                                            </blockquote>
+                                            <a href="{{ $data['$student_leadership_cta_link']['url'] }}" class="btn-underline" {{ $data['$student_leadership_cta_link']['target'] }}>{{ $data['student_leadership_cta_link']['text'] }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endwhile
+                        </div>
+                        <div class="swiper-pagination gf-swiper-pg-two"></div>
+                    </div>
+                    <div class="gf-background-shape"></div>
+                </div>
+                {{-- Initialize Swiper --}}
+                <script>
+                var swiper = new Swiper(".gfSwiperTwo", {
+                    loop: true,
+                    navigation: {
+                        nextEl: ".gf-next-two",
+                        prevEl: ".gf-prev-two",
+                    },
+                    pagination: {
+                        el: ".gf-swiper-pg-two",
+                        clickable: true
+                    },
+                });
+                </script>
+            </div>
+        @endif
+
+        @if( have_rows($data['student_leadership_info_block']) )
+            <div class="container">
+                @while ( have_rows($data['student_leadership_info_block']) )
+                    <div class="row student-leadership-column">
+                        <div class="col-md-4">
+                            <div class="gf-col-image-wrapper">
+                                <div class="gf-col-image" style="background-image:url('{{ $data['$student_leadership_info_block_image']['url'] }}')" aria-label="{{ $data['$student_leadership_info_block_image']['alt'] }}"></div>
+                                <div class="gf-col-image-bg-shape"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <p>{!! $data['student_leadership_blockquote'] !!}</p>
+                        </div>
+                    </div>
+
+                @endwhile
+            </div>
+        @endif
+        <div class="yellow-circle-ornanament"></div>
+    </section>
+
     {{-- Student Internships --}}
     <section class="gf-student-internships" id="gf_student_internships">
         <div class="container">
