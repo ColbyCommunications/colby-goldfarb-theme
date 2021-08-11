@@ -148,6 +148,32 @@ class TemplateReview extends Controller
             "student_internships_text" => $student_internships_text,
             "student_internships_stat_number" => $student_internships_stat_number,
             "student_internships_stat_caption" => $student_internships_stat_caption,
+
+            "student_internships_list_title" => $student_internships_list_title,
+            "student_internships_list_text" => $student_internships_list_text,
+
+            "franko_maisel_prize_title" => $franko_maisel_prize_title,
+            "franko_maisel_prize_image" => $franko_maisel_prize_image,
+            "franko_maisel_prize_header" => $franko_maisel_prize_header,
+            "franko_maisel_prize_text" => $franko_maisel_prize_text,
+            "franko_maisel_prize_attiribution" => $franko_maisel_prize_attiribution,
+            "franko_maisel_prize_attribution_caption" => $franko_maisel_prize_attribution_caption,
+
+            "faculty_engagement_image" => $faculty_engagement_image,
+            "faculty_engagement_title" => $faculty_engagement_title,
+            "faculty_engagement_heading" => $faculty_engagement_heading,
+            "faculty_engagement_text" => $faculty_engagement_text,
+            "faculty_engagement_attribution" => $faculty_engagement_attribution,
+            "faculty_engagement_attribution_caption" => $faculty_engagement_attribution_caption,
+            "faculty_engagement_research_posts" => $faculty_engagement_research_posts,
+
+            "annual_theme_policy_symposium_title" => $annual_theme_policy_symposium_title,
+            "annual_theme_policy_symposium_featured_image" => $annual_theme_policy_symposium_featured_image,
+            "annual_theme_policy_symposium_heading" => $annual_theme_policy_symposium_heading,
+            "annual_theme_policy_symposium_text" => $annual_theme_policy_symposium_text,
+            "annual_theme_policy_symposium_sidebar_image" => $annual_theme_policy_symposium_sidebar_image,
+            "annual_theme_policy_symposium_attribution" => $annual_theme_policy_symposium_attribution,
+            "annual_theme_policy_symposium_attribution_caption" => $annual_theme_policy_symposium_attribution_caption,
         ];
     }
 }
