@@ -33,18 +33,89 @@ class TemplateReview extends Controller
         $annual_theme_overview_attribution_caption = get_field('annual_theme_overview_attribution_caption');
 
         // Virtual Event Fields
+        $goldfarb_center_virtual_events_carousel_sub_field_data = [];
+        if( have_rows('student_leadership_carousel') ):
+            while ( have_rows('student_leadership_carousel') ) : the_row();
+                $goldfarb_center_virtual_events_carousel[] = array (
+                    "virtual_events_blockquote" => get_sub_field('virtual_events_blockquote'),
+                    "virtual_events_attribution_name" => get_sub_field('virtual_events_attribution_name'),
+                    "virtual_events_attribution_text" => get_sub_field('virtual_events_attribution_text'),
+                );
+            endwhile;
+        endif;
+
         $goldfarb_center_virtual_events_title = get_field('goldfarb_center_virtual_events_title');
         $goldfarb_center_virtual_events_header = get_field('goldfarb_center_virtual_events_header');
-        $virtual_events_blockquote = get_sub_field('virtual_events_blockquote');
-        $virtual_events_attribution_name = get_sub_field('virtual_events_attribution_name');
-        $virtual_events_attribution_text = get_sub_field('virtual_events_attribution_text');
         $virtual_events_posts = get_field('goldfarb_center_virtual_events_post_selector');
 
-        $is_featured_post = get_field('is_featured_post');
-        $lightbox_you_tube_embed_code = get_field('lightbox_you_tube_embed_code');
-        $gf_event_date = get_field('gf_event_date');
+        $virtual_events_post_data = [];
+        $post_ids = [];
+        foreach( $virtual_events_posts as $post ) {
+            $post_ids[] = $post->ID;
+        }
+        // die(var_dump($post_ids));
 
-        $cats = get_the_category(get_the_ID());
+
+        $posts = get_posts([
+            'post_type' => "virtual-events",
+            'post__in' => $post_ids,
+            'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash')
+        ]);
+
+        foreach( $posts as $post ) {
+
+            $post_meta = get_post_meta($post->ID);
+            // $post_thumbnail = get_the_post_thumbnail_url($post->ID);
+
+            // die(var_dump($post_thumbnail));
+            $is_featured_post = $post_meta['is_featured_post'];
+            $lightbox_you_tube_embed_code = $post_meta['lightbox_you_tube_embed_code'];
+            $gf_event_date = $post_meta['gf_event_date'];
+
+            $post_row = ["original_post_data" => $post];
+            if( $is_featured_post == false ) {
+                $post_row["is_featured"] = false;
+                if(has_post_thumbnail($post->ID)) {
+                    $post_row['has_post_thumbnail'] = true;
+                    $post_row['the_post_thumbnail_url'] = get_the_post_thumbnail_url($post->ID);
+                }
+
+                if ($cats) {
+                    $post['cats'] = true;
+                    $post_row['category_name'] = $cats[0]->name;
+                }
+
+                $post_row["the_title"] = $post->post_title;
+                $post_row["the_excerpt"] = $post->post_excerpt;
+                $post_row["the_content"] = $post->post_content;
+                $post_row["gf_event_date"] = $gf_event_date;
+                $post_row["lightbox_you_tube_embed_code"] = $lightbox_you_tube_embed_code;
+
+            } else {
+                $post_row["is_featured"] = true;
+
+                if(has_post_thumbnail($post->ID)) {
+                    $post_row['has_post_thumbnail'] = true;
+                    $post_row['the_post_thumbnail_url'] = get_the_post_thumbnail_url($post->ID);
+                }
+
+                if ($cats) {
+                    $post['cats'] = true;
+                    $post_row['category_name'] = $cats[0]->name;
+                }
+
+                $post_row["the_title"] = $post->post_title;
+                $post_row["the_excerpt"] = $post->post_excerpt;
+                $post_row["the_content"] = $post->post_content;
+                $post_row["gf_event_date"] = $gf_event_date;
+                $post_row["lightbox_you_tube_embed_code"] = $lightbox_you_tube_embed_code;
+            }
+
+            $virtual_events_post_data[] = $post_row;
+        }
+        // wp_reset_postdata();
+
+        // die(var_dump($virtual_events_post_data));
 
         // Student Leadership Fields
         $student_leadership_title = get_field('student_leadership_title');
@@ -103,7 +174,6 @@ class TemplateReview extends Controller
         $faculty_engagement_attribution_caption = get_field('faculty_engagement_attribution_caption');
         $faculty_engagement_research_posts = get_field('faculty_engagement_research_posts');
 
-
         $annual_theme_policy_symposium_title = get_field('annual_theme_policy_symposium_title');
         $annual_theme_policy_symposium_featured_image = get_field('annual_theme_policy_symposium_featured_image');
         $annual_theme_policy_symposium_heading = get_field('annual_theme_policy_symposium_heading');
@@ -141,16 +211,9 @@ class TemplateReview extends Controller
             // Virtual Event Fields
             "goldfarb_center_virtual_events_title" => $goldfarb_center_virtual_events_title,
             "goldfarb_center_virtual_events_header" => $goldfarb_center_virtual_events_header,
-            "virtual_events_blockquote" => $virtual_events_blockquote,
-            "virtual_events_attribution_name" => $virtual_events_attribution_name,
-            "virtual_events_attribution_text" => $virtual_events_attribution_text,
-            "virtual_events_posts" => $virtual_events_posts,
+            "goldfarb_center_virtual_events_carousel_sub_field_data" => $goldfarb_center_virtual_events_carousel_sub_field_data,
 
-            "is_featured_post" => $is_featured_post,
-            "lightbox_you_tube_embed_code" => $lightbox_you_tube_embed_code,
-            "gf_event_date" => $gf_event_date,
-
-            "cats" => $cats,
+            "virtual_events_post_data" => $virtual_events_post_data,
 
             // Student Leadership Fields
             "student_leadership_title" => $student_leadership_title,

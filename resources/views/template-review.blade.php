@@ -101,6 +101,126 @@
         </div>
     </section>
 
+    {{-- Virtual Events --}}
+    <section class="swiper-carousel virtual-events" id="virtual_events">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-7">
+                    <h2>{{ $data['goldfarb_center_virtual_events_title'] }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="inner__wrapper">
+                <h3>{{ $data['goldfarb_center_virtual_events_header'] }}</h3>
+            </div>
+
+            {{-- Swiper --}}
+            <div class="gf-slider__wrapper">
+                <div class="swiper-container gfSwiperOne">
+                    <div class="gf-slider-arrows">
+                        <div class="swiper-button-next gf-next-one'] }}"></div>
+                        <div class="swiper-button-prev gf-prev-one"></div>
+                    </div>
+                    <div class="swiper-wrapper">
+                        @foreach ($data['goldfarb_center_virtual_events_carousel_sub_field_data'] as $ve_slide )
+
+                        {{-- Slide --}}
+                        <div class="swiper-slide">
+                            <blockquote class="gf-blockquote">
+                                “{{ $ve_slide['virtual_events_blockquote'] }}”
+                            </blockquote>
+                            <div class="gf-title-box">
+                                <p class="gf-attribution-name">{{ $ve_slide['virtual_events_attribution_name'] }}<p>
+                                <div class="gf-attribution-aff">
+                                    {{ $ve_slide['virtual_events_attribution_text'] }}
+                                </div>
+                            </div>
+                        </div>
+
+                        @endforeach
+
+                    </div>
+                    <div class="swiper-pagination gf-swiper-pg-one"></div>
+                </div>
+                <div class="gf-background-shape"></div>
+            </div>
+
+            {{-- Cards Container --}}
+                <div class="container gf-cards-container">
+                    <div class="row">
+                        @foreach( $data['virtual_events_post_data'] as $post )
+                            @if( $post['is_featured'] == false )
+                                {{-- Standard Cards --}}
+                                <div class="col-md-4">
+                                    <article class="gf-card">
+                                        @if($post['has_post_thumbnail'])
+                                            <div class="gf-img" style="background-image:url('{{ $post['the_post_thumbnail_url'] }} ')" aria-label="Alt Text Here"></div>
+                                        @endif
+                                        <div class="gf-inner-content">
+                                            @if($post['cats'])
+                                                <span class="category-name">{{ $post['category_name'] }}</span>
+                                            @endif
+                                            <h4>{{ $post['the_title'] }}</h4>
+                                            {{ $post['the_excerpt'] }}
+                                        </div>
+                                        <div class="gf-inner-link-wrapper">
+                                            <a href="#" onClick="fireGfModal(this.id); event.preventDefault();" id="gf-event-trigger-{{ $post['original_post_data']->ID }}" class="btn-underline" data-title="{{ $post['the_title'] }}" data-ev-date="{{ $post['gf_event_date'] }}" data-content="{{ $post['the_content'] }}" data-yt-id="{{ $post['lightbox_you_tube_embed_code'] }}" >Learn More</a>
+                                        </div>
+                                    </article>
+                                </div>
+                            @else
+                                {{-- Featured Card --}}
+                                <div class="col-md-12 d-flex featured-column">
+                                    <div class="col-md-8 order-md-2">
+                                        @if($post['has_post_thumbnail'])
+                                            <div class="gf-long-featured-image" style="background-image:url('{{ $post['the_post_thumbnail_url'] }}')" aria-label="Alt Text Here">
+                                                <div class="gf-image-ornament"></div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-4 order-md-1">
+                                            @if($post['cats'])
+                                                <span class="category-name">{{ $post['category_name'] }}</span>
+                                            @endif
+                                        <h4>{{ $post['the_title'] }}</h4>
+                                            {{ $post['the_excerpt'] }}
+                                        <div class="gf-inner-link-wrapper">
+                                            <a href="#"
+                                            onClick="fireGfModal(this.id); event.preventDefault();"
+                                            id="gf-event-trigger-{{ $post['original_post_data']->ID }}"
+                                            class="btn-underline" data-title="{{ $post['the_title'] }}"
+                                            data-ev-date="{{ $post['gf_event_date'] }}"
+                                            data-content="{{ $post['the_content'] }}"
+                                            data-yt-id="{{ $data['$lightbox_you_tube_embed_code'] }}" >Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                    <div class="yellow-circle-ornanament"></div>
+                </div>
+
+
+            {{-- Initialize Swiper --}}
+            <script>
+            var swiper = new Swiper(".gfSwiperOne", {
+                loop: true,
+                navigation: {
+                    nextEl: ".gf-next-one",
+                    prevEl: ".gf-prev-one",
+                },
+                pagination: {
+                    el: ".gf-swiper-pg-one",
+                    clickable: true
+                },
+            });
+            </script>
+        </div>
+    </section>
+
     {{-- Student Leadership --}}
     <section class="gf-student-leadership" id="gf_student_leadership">
         <div class="container">
