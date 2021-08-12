@@ -123,7 +123,7 @@
         {{-- Slider Section --}}
         <div class="container">
             {{-- Swiper --}}
-            @if( have_rows($data['student_leadership_carousel']) )
+
                 <div class="gf-slider__wrapper">
                     <div class="swiper-container gfSwiperTwo">
                         <div class="gf-slider-arrows">
@@ -131,24 +131,24 @@
                             <div class="swiper-button-prev gf-prev-two"></div>
                         </div>
                         <div class="swiper-wrapper">
-                            @while ( have_rows($data['student_leadership_carousel']) )
+                            @foreach ( $data['student_leadership_carousel_sub_field_data'] as $slide )
                                 {{-- Slide --}}
                                 <div class="swiper-slide">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="gf-image-wrapper">
-                                                <div class="gf-image" style="background-image:url('{{ $data['student_leadership_image']['url'] }}')"  aria-label="{{ $data['student_leadership_image']['alt']}}"></div>
+                                                <div class="gf-image" style="background-image:url('{{ $slide['student_leadership_image']['url'] }}')"  aria-label="{{ $data['student_leadership_image']['alt']}}"></div>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
                                             <blockquote class="gf-blockquote">
-                                                {{ $data['student_leadership_blockquote'] }}
+                                                {{ $slide['student_leadership_blockquote'] }}
                                             </blockquote>
-                                            <a href="{{ $data['$student_leadership_cta_link']['url'] }}" class="btn-underline" {{ $data['$student_leadership_cta_link']['target'] }}>{{ $data['student_leadership_cta_link']['text'] }}</a>
+                                            <a href="{{ $slide['$student_leadership_cta_link']['url'] }}" class="btn-underline" {{ $slide['$student_leadership_cta_link']['target'] }}>{{ $slide['student_leadership_cta_link']['text'] }}</a>
                                         </div>
                                     </div>
                                 </div>
-                            @endwhile
+                            @endforeach
                         </div>
                         <div class="swiper-pagination gf-swiper-pg-two"></div>
                     </div>
@@ -169,26 +169,24 @@
                 });
                 </script>
             </div>
-        @endif
 
-        @if( have_rows($data['student_leadership_info_block']) )
             <div class="container">
-                @while ( have_rows($data['student_leadership_info_block']) )
+                @foreach ( $data['student_leadership_info_block_sub_field_data'] as $item )
                     <div class="row student-leadership-column">
                         <div class="col-md-4">
                             <div class="gf-col-image-wrapper">
-                                <div class="gf-col-image" style="background-image:url('{{ $data['$student_leadership_info_block_image']['url'] }}')" aria-label="{{ $data['$student_leadership_info_block_image']['alt'] }}"></div>
+                                <div class="gf-col-image" style="background-image:url('{{ $item['student_leadership_info_block_image']['url'] }}')" aria-label="{{ $item['$student_leadership_info_block_image']['alt'] }}"></div>
                                 <div class="gf-col-image-bg-shape"></div>
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <p>{!! $data['student_leadership_blockquote'] !!}</p>
+                            <p>{!! $item['student_leadership_blockquote'] !!}</p>
                         </div>
                     </div>
 
-                @endwhile
+                @endforeach
             </div>
-        @endif
+
         <div class="yellow-circle-ornanament"></div>
     </section>
 
@@ -221,22 +219,20 @@
             </div>
         </div>
 
-        @if( have_rows($data['student_internships_list']) )
             {{-- Internship List --}}
             <ul class="container gf-dot-list">
-                @while ( have_rows($data['student_internships_list']) )
+                @foreach ( $data['student_internships_list_sub_field_data'] as $item )
                     {{-- Internship --}}
                     <li class="row gf-list-item">
                         <div class="col-md-3">
-                            <h4>{{ $data['student_internships_list_title'] }}</h4>
+                            <h4>{{ $item['student_internships_list_title'] }}</h4>
                         </div>
                         <div class="col-md-9">
-                            {!! $data['student_internships_list_text'] !!}
+                            {!! $item['student_internships_list_text'] !!}
                         </div>
                     </li>
-                @endwhile
+                @endforeach
             </ul>
-        @endif
         <div class="yellow-circle-ornanament"></div>
     </section>
 

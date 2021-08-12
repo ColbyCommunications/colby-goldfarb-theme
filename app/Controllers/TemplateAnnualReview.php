@@ -35,9 +35,16 @@ class TemplateAnnualReview extends Controller
         $student_leadership_header = get_field('student_leadership_header');
         $student_leadership_text = get_field('student_leadership_text');
 
-        $student_leadership_image = get_sub_field('student_leadership_images');
-        $student_leadership_blockquote = get_sub_field('student_leadership_blockquote');
-        $student_leadership_cta_link = get_sub_field('student_leadership_cta_link');
+        $student_leadership_carousel_sub_field_data = [];
+        if( have_rows('student_leadership_carousel') ):
+            while ( have_rows('student_leadership_carousel') ) : the_row();
+            $student_leadership_carousel_sub_field_data[] = array (
+                "student_leadership_image" => get_sub_field('student_leadership_images'),
+                "student_leadership_blockquote" => get_sub_field('student_leadership_blockquote'),
+                "student_leadership_cta_link" => get_sub_field('student_leadership_cta_link'),
+            );
+            endwhile;
+        endif;
 
         $student_leadership_info_block_image = get_sub_field('student_leadership_info_block_image');
         $student_leadership_blockquote = get_sub_field('student_leadership_blockquote');

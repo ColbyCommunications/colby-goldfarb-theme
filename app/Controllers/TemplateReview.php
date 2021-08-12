@@ -51,12 +51,26 @@ class TemplateReview extends Controller
         $student_leadership_header = get_field('student_leadership_header');
         $student_leadership_text = get_field('student_leadership_text');
 
-        $student_leadership_image = get_sub_field('student_leadership_images');
-        $student_leadership_blockquote = get_sub_field('student_leadership_blockquote');
-        $student_leadership_cta_link = get_sub_field('student_leadership_cta_link');
+        $student_leadership_carousel_sub_field_data = [];
+        if( have_rows('student_leadership_carousel') ):
+            while ( have_rows('student_leadership_carousel') ) : the_row();
+                $student_leadership_carousel_sub_field_data[] = array (
+                    "student_leadership_image" => get_sub_field('student_leadership_images'),
+                    "student_leadership_blockquote" => get_sub_field('student_leadership_blockquote'),
+                    "student_leadership_cta_link" => get_sub_field('student_leadership_cta_link'),
+                );
+            endwhile;
+        endif;
 
-        $student_leadership_info_block_image = get_sub_field('student_leadership_info_block_image');
-        $student_leadership_blockquote = get_sub_field('student_leadership_blockquote');
+        $student_leadership_info_block_sub_field_data = [];
+        if( have_rows('student_leadership_info_block') ):
+            while ( have_rows('student_leadership_info_block') ) : the_row();
+                $student_leadership_info_block_sub_field_data[] = array (
+                    "student_leadership_info_block_image" => get_sub_field('student_leadership_info_block_image'),
+                    "student_leadership_blockquote" => get_sub_field('student_leadership_blockquote'),
+                );
+            endwhile;
+        endif;
 
         $student_internships_title = get_field('student_internships_title');
         $student_internships_heading = get_field('student_internships_heading');
@@ -64,8 +78,15 @@ class TemplateReview extends Controller
         $student_internships_stat_number = get_field('student_internships_stat_number');
         $student_internships_stat_caption = get_field('student_internships_stat_caption');
 
-        $student_internships_list_title = get_sub_field('student_internships_list_title');
-        $student_internships_list_text = get_sub_field('student_internships_list_text');
+        $student_internships_list_sub_field_data = [];
+        if( have_rows('student_internships_list') ):
+            while ( have_rows('student_internships_list') ) : the_row();
+                $student_internships_list_sub_field_data[] = array (
+                    "student_internships_list_title" => get_sub_field('student_internships_list_title'),
+                    "student_internships_list_text" => get_sub_field('student_internships_list_text'),
+                );
+            endwhile;
+        endif;
 
         $franko_maisel_prize_title = get_field('franko_maisel_prize_title');
         $franko_maisel_prize_image = get_field('franko_maisel_prize_image');
@@ -136,12 +157,9 @@ class TemplateReview extends Controller
             "student_leadership_header" => $student_leadership_header,
             "student_leadership_text" => $student_leadership_text,
 
-            "student_leadership_image" => $student_leadership_image,
-            "student_leadership_blockquote" => $student_leadership_blockquote,
-            "student_leadership_cta_link" => $student_leadership_cta_link,
+            "student_leadership_carousel_sub_field_data" => $student_leadership_carousel_sub_field_data,
+            "student_leadership_info_block_sub_field_data" => $student_leadership_info_block_sub_field_data,
 
-            "student_leadership_info_block_image" => $student_leadership_info_block_image,
-            "student_leadership_blockquote" => $student_leadership_blockquote,
 
             "student_internships_title" => $student_internships_title,
             "student_internships_heading" => $student_internships_heading,
@@ -149,8 +167,7 @@ class TemplateReview extends Controller
             "student_internships_stat_number" => $student_internships_stat_number,
             "student_internships_stat_caption" => $student_internships_stat_caption,
 
-            "student_internships_list_title" => $student_internships_list_title,
-            "student_internships_list_text" => $student_internships_list_text,
+            "student_internships_list_sub_field_data" => $student_internships_list_sub_field_data,
 
             "franko_maisel_prize_title" => $franko_maisel_prize_title,
             "franko_maisel_prize_image" => $franko_maisel_prize_image,
