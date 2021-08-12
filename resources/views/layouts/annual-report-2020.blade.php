@@ -10,6 +10,7 @@
         @include('partials.footer-annual-report')
         @php wp_footer() @endphp
     <div>
+
   </body>
 </html>
 
