@@ -11,6 +11,7 @@
 
     {{-- Annual Report Hero --}}
     <section class="gf-intro-hero" style="background-image:url('{{ $data['annual_report_hero_image'] }}')">
+        <div class="gf-hero-overlay"></div>
         <div class="container">
             <div class="inner__content">
                 <div class="gf-tagline">
@@ -19,7 +20,7 @@
                     <div class="gf-hero-headline">{{ $data['annual_report_hero_years'] }}</div>
                 </div>
 
-                <div class="inner__shape-container">
+                <div class="inner__shape-container tagline-trigger">
                     <div class="inner__shape">
                         <h1>{{ $data['annual_report_hero_title'] }}</h1>
                         {!! $data['annual_report_hero_text'] !!}
@@ -36,11 +37,11 @@
     <section id="gf_image_text_section" class="gf-image-text-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-7 order-md-2">
+                <div class="col-lg-7 order-lg-2">
                     <h2>{{ $data['letter_section_title'] }}</h2>
                     {!! $data['letter_section_text'] !!}
                 </div>
-                <div class="col-md-5 order-md-1">
+                <div class="col-lg-5 order-lg-1">
                     <div class="gf-image-wrapper">
                         <div class="gf-image" style="background-image:url('{{ $data['letter_section_image']['url'] }}')" aria-label="Alt Text Here"></div>
                         <div class="gf-image-bg-shape"></div>
@@ -84,7 +85,7 @@
                     <div class="gf-fancy-text-wrapper">
                         <div class="gf-fancy-text">
                             <p class="gf-blockquote">
-                                {{ $data['annual_theme_overview_attribution_box_text'] }}
+                                {!! $data['annual_theme_overview_attribution_box_text'] !!}
                             </p>
                         </div>
                         <div class="gf-fancy-text-shape"></div>
@@ -120,7 +121,7 @@
             <div class="gf-slider__wrapper">
                 <div class="swiper-container gfSwiperOne">
                     <div class="gf-slider-arrows">
-                        <div class="swiper-button-next gf-next-one'] }}"></div>
+                        <div class="swiper-button-next gf-next-one"></div>
                         <div class="swiper-button-prev gf-prev-one"></div>
                     </div>
                     <div class="swiper-wrapper">
@@ -377,6 +378,62 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="yellow-circle-ornanament"></div>
+    </section>
+
+    {{-- Faculty Engagement And Research --}}
+    <section class="gf-faculty-engaugement" id="gf_faculty_engaugement">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-7">
+                    <h2>{{ $data['faculty_engagement_title'] }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h3>{{ $data['faculty_engagement_heading'] }}</h3>
+                    {!! $data['faculty_engagement_text'] !!}
+                </div>
+                <div class="col-md-5">
+                    <div class="gf-image-wrapper">
+                        <div class="gf-image" style="background-image:url('{{ $data['faculty_engagement_image']['url'] }}')" aria-label="{{ $data['faculty_engagement_image']['alt'] }}"></div>
+                        <div class="gf-image-bg-shape"></div>
+                    </div>
+                    <div class="gf-title-box">
+                        <p class="gf-attribution-name">{{ $data['faculty_engagement_attribution'] }}<p>
+                        <p class="gf-attribution-aff">
+                            {{ $data['franko_maisel_prize_attribution_caption'] }}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {{-- Cards --}}
+        <div class="container gf-cards-container">
+            <div class="row">
+                @foreach( $data['faculty_engagement_research_posts_data'] as $post )
+                    {{-- Standard Cards --}}
+                    <div class="col-md-4">
+                        <article class="gf-card">
+                            <div class="gf-inner-content">
+                                @if($post['cats']): ?>
+                                    <span class="category-name">{{ $post['category_name'] }}</span>
+                                @endif
+                                <h4>{{ $post['the_title'] }}</h4>
+                                {{ $post['the_excerpt'] }}
+                            </div>
+                            <div class="gf-inner-link-wrapper">
+                            <a href="#" onClick="fireGfModal(this.id); event.preventDefault();" id="gf-event-trigger-{{ $post['original_post_data']->ID }}" class="btn-underline" data-title="{{ $post['the_title'] }}" data-ev-date="{{ $post['gf_event_date'] }}" data-content="{{ $post['the_content'] }}" data-yt-id="{{ $post['lightbox_you_tube_embed_code'] }}" >Learn More</a>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
             </div>
         </div>
         <div class="yellow-circle-ornanament"></div>

@@ -1,3 +1,7 @@
+@php
+    $data = TemplateReview::socialData();
+@endphp
+
 <footer class="gf-annual-report-footer">
     <div class="container">
        <div class="row">
@@ -19,26 +23,35 @@
              </div>
            </div>
            <div class="col-md-6">
-                <p>The Goldfarb Center for Public Affairs at Colby College<br/>
-                5300 Mayflower Hill<br/>
-                Waterville, ME 04901-8853</p>
+                <div class="gf-small-paragraph-text">
+                    {{ $data['annual_theme_footer_address'] }}
+                </div>
            </div>
+
            <div class="col-md-2">
-                <p>P: 207-859-5300<br/>
-E: goldfarb@colby.edu</p>
+                <p>P: <a href="tel:207-859-5300">207-859-5300</a><br/>
+                E: <a href="mailto:goldfarb@colby.edu">goldfarb@colby.edu</a></p>
                 <nav>
                     <ul class="gf-social-nav">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        @if($data['social_facebook'])
+                            <li><a href="{{ $data['social_facebook']['url'] }}" {{ $data['social_facebook']['target'] }} aria-label="{{ $data['social_facebook']['text'] }}"><i class="fab fa-facebook-f"></i></a></li>
+                        @endif
+                        @if($data['social_instagram'])
+                            <li><a href="{{ $data['social_instagram']['url']}}" {{ $data['social_instagram']['target'] }} aria-label="{{ $data['social_instagram']['text'] }}"><i class="fab fa-instagram"></i></a></li>
+                        @endif
+                        @if($data['social_twitter'])
+                            <li><a href="{{ $data['social_twitter']['url'] }}" {{ $data['social_twitter']['target'] }} aria-label="{{ $data['social_twitter']['text'] }}"><i class="fab fa-twitter"></i></a></li>
+                        @endif
+                        @if($data['social_you_tube'])
+                            <li><a href="{{ $data['social_you_tube']['url'] }}" {{ $data['social_you_tube']['target'] }} aria-label="{{ $data['social_you_tube']['text'] }}"><i class="fab fa-youtube"></i></a></li>
+                        @endif
                     </ul>
                 </nav>
            </div>
        </div>
     </div>
     <div class="container">
-        <p>&copy; Copyright – 2021, Goldfarb Center for Public Affairs at Colby &nbsp<a href="https://glantz.net" target="blank">Site by Glantz</a>
+        <p class="gf-small-paragraph-text">&copy; Copyright – 2021, Goldfarb Center for Public Affairs at Colby &nbsp<a href="https://glantz.net" target="blank">Site by Glantz</a>
     </div>
 </footer>
 

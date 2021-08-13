@@ -1,4 +1,36 @@
 (() => {
+    function gsapIntro() {
+        const tl = gsap.timeline();
+
+        if (window.screen.width >= 500) {
+            tl.from('.gf-annual-report-logo', { y: 300 })
+                .to('.gf-hero-overlay', { autoAlpha: 0 })
+                .from('.gf-tagline', { y: 250, autoAlpha: 1 })
+                .to('.gf-tagline', { y: 0, autoAlpha: 1 })
+                .from('.tagline-trigger', { y: 100, autoAlpha: 0 })
+                .to('.tagline-trigger', { y: 0, autoAlpha: 1 });
+        }
+
+        if (window.screen.width <= 500) {
+            tl.from('.gf-annual-report-logo', { y: 200 })
+                .to('.gf-hero-overlay', { autoAlpha: 0 })
+                .from('.gf-tagline', { y: 210, autoAlpha: 1 })
+                .to('.gf-tagline', { y: 0, autoAlpha: 1 })
+                .from('.tagline-trigger', { y: 100, autoAlpha: 0 })
+                .to('.tagline-trigger', { y: 0, autoAlpha: 1 });
+        }
+
+        ScrollTrigger.create({
+            trigger: '.gf-intro-hero',
+            animation: tl,
+            pin: true,
+            start: 'bottom bottom',
+            end: '+=100vh top',
+            scrub: 1, // I like the 1 sec delay, set to true for exact anime on scroll
+            markers: false,
+        });
+    }
+
     function toggleMenu() {
         const menu = document.querySelector('.gf-annual-report-nav-btn');
         const menuDrawer = document.querySelector('.gf-nav-menu');
@@ -13,7 +45,7 @@
             navElement.addEventListener('click', (e) => {
                 menuDrawer.classList.toggle('gf-menu-active');
             });
-        }); 
+        });
 
         return false;
     }
@@ -57,6 +89,7 @@
     }
 
     toggleMenu();
+    gsapIntro();
     scrollPosition();
     fireGfModal();
 })();

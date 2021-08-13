@@ -71,13 +71,14 @@ class TemplateReview extends Controller
             $is_featured_post = $post_meta['is_featured_post'];
             $lightbox_you_tube_embed_code = $post_meta['lightbox_you_tube_embed_code'];
             $gf_event_date = $post_meta['gf_event_date'];
+            $cats = get_the_category($post->ID);
 
             $post_row = ["original_post_data" => $post];
             if( $is_featured_post == false ) {
                 $post_row["is_featured"] = false;
                 if(has_post_thumbnail($post->ID)) {
                     $post_row['has_post_thumbnail'] = true;
-                    $post_row['the_post_thumbnail_url'] = get_the_post_thumbnail_url($post->ID);
+                    $post_row['the_post_thumbnail_url'] = get_the_post_thumbnail_url($post->ID, "full");
                 }
 
                 if ($cats) {
@@ -96,7 +97,7 @@ class TemplateReview extends Controller
 
                 if(has_post_thumbnail($post->ID)) {
                     $post_row['has_post_thumbnail'] = true;
-                    $post_row['the_post_thumbnail_url'] = get_the_post_thumbnail_url($post->ID);
+                    $post_row['the_post_thumbnail_url'] = get_the_post_thumbnail_url($post->ID, "full");
                 }
 
                 if ($cats) {
@@ -174,6 +175,46 @@ class TemplateReview extends Controller
         $faculty_engagement_attribution_caption = get_field('faculty_engagement_attribution_caption');
         $faculty_engagement_research_posts = get_field('faculty_engagement_research_posts');
 
+        $faculty_engagement_research_posts_data = [];
+        $faculty_engagement_post_ids = [];
+        foreach( $faculty_engagement_research_posts as $post ) {
+            $faculty_engagement_post_ids[] = $post->ID;
+        }
+        // die(var_dump($post_ids));
+
+
+        $posts = get_posts([
+            'post_type' => "posts",
+            'post__in' => $faculty_engagement_post_ids,
+            'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash')
+        ]);
+
+        foreach( $posts as $post ) {
+
+            $post_meta = get_post_meta($post->ID);
+            // $post_thumbnail = get_the_post_thumbnail_url($post->ID);
+
+            // die(var_dump($post_thumbnail));
+            $cats = get_the_category($post->ID);
+            $lightbox_you_tube_embed_code = $post_meta['lightbox_you_tube_embed_code'];
+            $gf_event_date = $post_meta['gf_event_date'];
+
+            $post_row = ["original_post_data" => $post];
+
+            if ($cats) {
+                $post['cats'] = true;
+                $post_row['category_name'] = $cats[0]->name;
+            }
+
+            $post_row["the_title"] = $post->post_title;
+            $post_row["the_excerpt"] = $post->post_excerpt;
+            $post_row["the_content"] = $post->post_content;
+            $post_row["gf_event_date"] = $gf_event_date;
+            $post_row["lightbox_you_tube_embed_code"] = $lightbox_you_tube_embed_code;
+
+            $faculty_engagement_research_posts_data[] = $post_row;
+        }
+
         $annual_theme_policy_symposium_title = get_field('annual_theme_policy_symposium_title');
         $annual_theme_policy_symposium_featured_image = get_field('annual_theme_policy_symposium_featured_image');
         $annual_theme_policy_symposium_heading = get_field('annual_theme_policy_symposium_heading');
@@ -245,7 +286,8 @@ class TemplateReview extends Controller
             "faculty_engagement_text" => $faculty_engagement_text,
             "faculty_engagement_attribution" => $faculty_engagement_attribution,
             "faculty_engagement_attribution_caption" => $faculty_engagement_attribution_caption,
-            "faculty_engagement_research_posts" => $faculty_engagement_research_posts,
+
+            "faculty_engagement_research_posts_data" => $faculty_engagement_research_posts_data,
 
             "annual_theme_policy_symposium_title" => $annual_theme_policy_symposium_title,
             "annual_theme_policy_symposium_featured_image" => $annual_theme_policy_symposium_featured_image,
@@ -254,6 +296,23 @@ class TemplateReview extends Controller
             "annual_theme_policy_symposium_sidebar_image" => $annual_theme_policy_symposium_sidebar_image,
             "annual_theme_policy_symposium_attribution" => $annual_theme_policy_symposium_attribution,
             "annual_theme_policy_symposium_attribution_caption" => $annual_theme_policy_symposium_attribution_caption,
+
+            "annual_theme_footer_address" => get_field('annual_theme_footer_address'),
+            "social_facebook" => get_field('annual_theme_facebook_url'),
+            "social_instagram" => get_field('annual_theme_instagram_url'),
+            "social_twitter" => get_field('annual_theme_twitter_url'),
+            "social_you_tube" => get_field('annual_theme_you_tube_url'),
+        ];
+    }
+
+    public function socialData()
+    {
+        return [
+            "annual_theme_footer_address" => get_field('annual_theme_footer_address'),
+            "social_facebook" => get_field('annual_theme_facebook_url'),
+            "social_instagram" => get_field('annual_theme_instagram_url'),
+            "social_twitter" => get_field('annual_theme_twitter_url'),
+            "social_you_tube" => get_field('annual_theme_you_tube_url'),
         ];
     }
 }
