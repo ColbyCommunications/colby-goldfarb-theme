@@ -130,7 +130,7 @@
                         {{-- Slide --}}
                         <div class="swiper-slide">
                             <blockquote class="gf-blockquote">
-                                “{{ $ve_slide['virtual_events_blockquote'] }}”
+                                {{ $ve_slide['virtual_events_blockquote'] }}
                             </blockquote>
                             <div class="gf-title-box">
                                 <p class="gf-attribution-name">{{ $ve_slide['virtual_events_attribution_name'] }}<p>

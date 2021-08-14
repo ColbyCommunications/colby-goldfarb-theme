@@ -65,11 +65,11 @@ class TemplateReview extends Controller
             $post_meta = get_post_meta($post->ID);
             // $post_thumbnail = get_the_post_thumbnail_url($post->ID);
 
-            // die(var_dump($post_thumbnail));
-            $is_featured_post = $post_meta['is_featured_post'];
+
+            $is_featured_post = $post_meta['is_featured_post'][0];
             $lightbox_you_tube_embed_code = $post_meta['lightbox_you_tube_embed_code'];
             $gf_event_date = $post_meta['gf_event_date'];
-
+            // var_dump($post_meta);
             // die(var_dump($lightbox_you_tube_embed_code));
 
             // die(var_dump($gf_event_date));
