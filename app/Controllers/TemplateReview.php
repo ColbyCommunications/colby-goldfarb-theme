@@ -34,9 +34,9 @@ class TemplateReview extends Controller
 
         // Virtual Event Fields
         $goldfarb_center_virtual_events_carousel_sub_field_data = [];
-        if( have_rows('student_leadership_carousel') ):
-            while ( have_rows('student_leadership_carousel') ) : the_row();
-                $goldfarb_center_virtual_events_carousel[] = array (
+        if( have_rows('goldfarb_center_virtual_events_carousel') ):
+            while ( have_rows('goldfarb_center_virtual_events_carousel') ) : the_row();
+                $goldfarb_center_virtual_events_carousel_sub_field_data[] = array (
                     "virtual_events_blockquote" => get_sub_field('virtual_events_blockquote'),
                     "virtual_events_attribution_name" => get_sub_field('virtual_events_attribution_name'),
                     "virtual_events_attribution_text" => get_sub_field('virtual_events_attribution_text'),
@@ -53,8 +53,6 @@ class TemplateReview extends Controller
         foreach( $virtual_events_posts as $post ) {
             $post_ids[] = $post->ID;
         }
-        // die(var_dump($post_ids));
-
 
         $posts = get_posts([
             'post_type' => "virtual-events",
@@ -71,6 +69,10 @@ class TemplateReview extends Controller
             $is_featured_post = $post_meta['is_featured_post'];
             $lightbox_you_tube_embed_code = $post_meta['lightbox_you_tube_embed_code'];
             $gf_event_date = $post_meta['gf_event_date'];
+
+            // die(var_dump($lightbox_you_tube_embed_code));
+
+            // die(var_dump($gf_event_date));
             $cats = get_the_category($post->ID);
 
             $post_row = ["original_post_data" => $post];
@@ -88,9 +90,9 @@ class TemplateReview extends Controller
 
                 $post_row["the_title"] = $post->post_title;
                 $post_row["the_excerpt"] = $post->post_excerpt;
-                $post_row["the_content"] = $post->post_content;
-                $post_row["gf_event_date"] = $gf_event_date;
-                $post_row["lightbox_you_tube_embed_code"] = $lightbox_you_tube_embed_code;
+                $post_row["the_content"] = wp_strip_all_tags($post->post_content);
+                $post_row["gf_event_date"] = $gf_event_date[0];
+                $post_row["lightbox_you_tube_embed_code"] = $lightbox_you_tube_embed_code[0];
 
             } else {
                 $post_row["is_featured"] = true;
@@ -107,10 +109,12 @@ class TemplateReview extends Controller
 
                 $post_row["the_title"] = $post->post_title;
                 $post_row["the_excerpt"] = $post->post_excerpt;
-                $post_row["the_content"] = $post->post_content;
-                $post_row["gf_event_date"] = $gf_event_date;
-                $post_row["lightbox_you_tube_embed_code"] = $lightbox_you_tube_embed_code;
+                $post_row["the_content"] = wp_strip_all_tags($post->post_content);
+                $post_row["gf_event_date"] = $gf_event_date[0];
+                $post_row["lightbox_you_tube_embed_code"] = $lightbox_you_tube_embed_code[0];
             }
+
+            // die($post_row["is_featured"]);
 
             $virtual_events_post_data[] = $post_row;
         }
@@ -126,6 +130,7 @@ class TemplateReview extends Controller
         $student_leadership_carousel_sub_field_data = [];
         if( have_rows('student_leadership_carousel') ):
             while ( have_rows('student_leadership_carousel') ) : the_row();
+            // die(var_dump(get_sub_field('student_leadership_cta_link')));
                 $student_leadership_carousel_sub_field_data[] = array (
                     "student_leadership_image" => get_sub_field('student_leadership_images'),
                     "student_leadership_blockquote" => get_sub_field('student_leadership_blockquote'),
@@ -209,8 +214,8 @@ class TemplateReview extends Controller
             $post_row["the_title"] = $post->post_title;
             $post_row["the_excerpt"] = $post->post_excerpt;
             $post_row["the_content"] = $post->post_content;
-            $post_row["gf_event_date"] = $gf_event_date;
-            $post_row["lightbox_you_tube_embed_code"] = $lightbox_you_tube_embed_code;
+            $post_row["gf_event_date"] = $gf_event_date[0];
+            $post_row["lightbox_you_tube_embed_code"] = htmlspecialchars(json_encode($lightbox_you_tube_embed_code));
 
             $faculty_engagement_research_posts_data[] = $post_row;
         }
@@ -252,6 +257,7 @@ class TemplateReview extends Controller
             // Virtual Event Fields
             "goldfarb_center_virtual_events_title" => $goldfarb_center_virtual_events_title,
             "goldfarb_center_virtual_events_header" => $goldfarb_center_virtual_events_header,
+
             "goldfarb_center_virtual_events_carousel_sub_field_data" => $goldfarb_center_virtual_events_carousel_sub_field_data,
 
             "virtual_events_post_data" => $virtual_events_post_data,

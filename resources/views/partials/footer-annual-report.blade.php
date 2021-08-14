@@ -58,9 +58,9 @@
 </div>
 {{-- Virtual Event Modal --}}
 <div class="gf-virtual-event-modal">
-    <a href="#" class="gf-close-modal">CLOSE <i class="fas fa-times"></i></a>
+    <a onClick="closeGFmodal()" class="gf-close-modal">CLOSE <i class="fas fa-times"></i></a>
     <div class="gf-virtual-event-inner__wrapper">
-        <span id="gf-modal-title" class="h4">Title</span>
+        <span id="gf-modal-title" class="h4"></span>
         <span id="gf-modal-date" class="gf-event-date h2"></span>
         <div class="gf-youtube-embed__wrapper">
             <iframe id="gf-modal-youtube" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

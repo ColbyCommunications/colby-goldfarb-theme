@@ -135,7 +135,7 @@
                             <div class="gf-title-box">
                                 <p class="gf-attribution-name">{{ $ve_slide['virtual_events_attribution_name'] }}<p>
                                 <div class="gf-attribution-aff">
-                                    {{ $ve_slide['virtual_events_attribution_text'] }}
+                                    {!! $ve_slide['virtual_events_attribution_text'] !!}
                                 </div>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                                             {{ $post['the_excerpt'] }}
                                         </div>
                                         <div class="gf-inner-link-wrapper">
-                                            <a href="#" onClick="fireGfModal(this.id); event.preventDefault();" id="gf-event-trigger-{{ $post['original_post_data']->ID }}" class="btn-underline" data-title="{{ $post['the_title'] }}" data-ev-date="{{ $post['gf_event_date'] }}" data-content="{{ $post['the_content'] }}" data-yt-id="{{ $post['lightbox_you_tube_embed_code'] }}" >Learn More</a>
+                                            <a onClick="fireGfModal(this.id); event.preventDefault();" id="gf-event-trigger-{{ $post['original_post_data']->ID }}" class="btn-underline" data-title="{{ $post['the_title'] }}" data-ev-date="{{ $post['gf_event_date'] }}" data-content="{{ $post['the_content'] }}" data-yt-id="{{ $post['lightbox_you_tube_embed_code'] }}" >Learn More</a>
                                         </div>
                                     </article>
                                 </div>
@@ -194,7 +194,7 @@
                                             class="btn-underline" data-title="{{ $post['the_title'] }}"
                                             data-ev-date="{{ $post['gf_event_date'] }}"
                                             data-content="{{ $post['the_content'] }}"
-                                            data-yt-id="{{ $data['$lightbox_you_tube_embed_code'] }}" >Learn More</a>
+                                            data-yt-id="{{ $post['lightbox_you_tube_embed_code'] }}" >Learn More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -265,7 +265,7 @@
                                             <blockquote class="gf-blockquote">
                                                 {{ $slide['student_leadership_blockquote'] }}
                                             </blockquote>
-                                            <a href="{{ $slide['$student_leadership_cta_link']['url'] }}" class="btn-underline" {{ $slide['$student_leadership_cta_link']['target'] }}>{{ $slide['student_leadership_cta_link']['text'] }}</a>
+                                            <a href="{{ $slide['student_leadership_cta_link']['url'] }}" class="btn-underline" {{ $slide['$student_leadership_cta_link']['target'] }}>{{ $slide['student_leadership_cta_link']['text'] }}</a>
                                         </div>
                                     </div>
                                 </div>
