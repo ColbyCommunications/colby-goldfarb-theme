@@ -57,6 +57,27 @@
             var elem = document.querySelector('.gf-virtual-event-modal');
             elem.style.display = 'none';
         }
+
+        window.onscroll = scrollPosition();
+
+        function scrollPosition() {
+            let scrollObject = {};
+            const siteLogo = document.querySelector('.gf-annual-report-logo');
+
+            function getScrollPosition() {
+                scrollObject = {
+                    x: window.pageXOffset,
+                    y: window.pageYOffset,
+                };
+
+                if (scrollObject.y >= 200) {
+                    siteLogo.classList.add('gf-annual-report-logo-active');
+                } else {
+                    siteLogo.classList.remove('gf-annual-report-logo-active');
+                }
+            }
+        }
+
     </script>
 
 </head>
