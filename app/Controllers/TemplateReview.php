@@ -185,11 +185,11 @@ class TemplateReview extends Controller
         foreach( $faculty_engagement_research_posts as $post ) {
             $faculty_engagement_post_ids[] = $post->ID;
         }
-        // die(var_dump($post_ids));
+        // die(var_dump($faculty_engagement_post_ids));
 
 
         $posts = get_posts([
-            'post_type' => "posts",
+            'post_type' => "virtual-events",
             'post__in' => $faculty_engagement_post_ids,
             'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash')
         ]);
@@ -199,7 +199,7 @@ class TemplateReview extends Controller
             $post_meta = get_post_meta($post->ID);
             // $post_thumbnail = get_the_post_thumbnail_url($post->ID);
 
-            // die(var_dump($post_thumbnail));
+            // die(var_dump($post));
             $cats = get_the_category($post->ID);
             $lightbox_you_tube_embed_code = $post_meta['lightbox_you_tube_embed_code'];
             $gf_event_date = $post_meta['gf_event_date'];
@@ -219,6 +219,7 @@ class TemplateReview extends Controller
 
             $faculty_engagement_research_posts_data[] = $post_row;
         }
+        // die(var_dump($faculty_engagement_research_posts_data));
 
         $annual_theme_policy_symposium_title = get_field('annual_theme_policy_symposium_title');
         $annual_theme_policy_symposium_featured_image = get_field('annual_theme_policy_symposium_featured_image');
