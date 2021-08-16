@@ -67,7 +67,7 @@
             }
         }
 
-        window.onscroll = getScrollPosition();
+        window.onscroll = getScrollPosition;
     }
 
     function fireGfModal(currentId) {
