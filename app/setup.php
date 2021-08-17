@@ -20,6 +20,7 @@ add_action('wp_enqueue_scripts', function () {
     } else {
         wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
         wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.10.2/css/all.css', array(), '5.10.2' );
+        wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css', array(), '5.1.0' );
         wp_enqueue_style('sage/main.css', get_template_directory_uri().'/assets/styles/annual-report/style.css', false, null);
     }
 
