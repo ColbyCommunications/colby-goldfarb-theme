@@ -54,11 +54,16 @@ class TemplateReview extends Controller
             $post_ids[] = $post->ID;
         }
 
+        // die(var_dump($post_ids));
+
         $posts = get_posts([
             'post_type' => "virtual-events",
+            'numberposts' => 17,
             'post__in' => $post_ids,
             'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash')
         ]);
+
+        // die(var_dump($posts));
 
         foreach( $posts as $post ) {
 
