@@ -11,10 +11,17 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
-    wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
-    wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.10.2/css/all.css', array(), '5.10.2' );
-    wp_enqueue_style( 'typekit', 'https://use.typekit.net/djf7stt.css', array(), '1.0.0' );
+
+    if (!is_page('2020-2021-annual-report')) {
+        wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
+        wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+        wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.10.2/css/all.css', array(), '5.10.2' );
+        wp_enqueue_style( 'typekit', 'https://use.typekit.net/djf7stt.css', array(), '1.0.0' );
+    } else {
+        wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+        wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.10.2/css/all.css', array(), '5.10.2' );
+        wp_enqueue_style('sage/main.css', get_template_directory_uri().'/assets/styles/annual-report/style.css', false, null);
+    }
 
     if (is_single() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
