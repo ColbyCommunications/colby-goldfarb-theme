@@ -85,7 +85,7 @@
                     <div class="gf-fancy-text-wrapper">
                         <div class="gf-fancy-text">
                             <p class="gf-blockquote">
-                                {!! $data['annual_theme_overview_attribution_box_text'] !!}
+                                {{ $data['annual_theme_overview_attribution_box_text'] }}
                             </p>
                         </div>
                         <div class="gf-fancy-text-shape"></div>

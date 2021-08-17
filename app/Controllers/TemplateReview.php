@@ -28,7 +28,7 @@ class TemplateReview extends Controller
         $annual_theme_overview_text = get_field('annual_theme_overview_text');
         $annual_theme_overview_stat_number = get_field('annual_theme_overview_stat_number');
         $annual_theme_overview_stat_number_caption = get_field('annual_theme_overview_stat_number_caption');
-        $annual_theme_overview_attribution_box_text = get_field('annual_theme_overview_attribution_box_text');
+        $annual_theme_overview_attribution_box_text = strip_tags(get_field('annual_theme_overview_attribution_box_text'));
         $annual_theme_overview_attribution_name = get_field('annual_theme_overview_attribution_name');
         $annual_theme_overview_attribution_caption = get_field('annual_theme_overview_attribution_caption');
 
