@@ -1,6 +1,4 @@
 <ul id="gf-nav-menu" class="gf-nav-menu">
-    <a href="#" class="gf-close-btn">Close&nbsp;<i class="fas fa-times"></i></a>
-
     <li class="gf-nav__item"><a href="#gf_image_text_section">Letter From The Executive Director</a></li>
     <li class="gf-nav__item"><a href="#annual_overview">ANNUAL THEME OVERVIEW</a></li>
     <li class="gf-nav__item"><a href="#virtual_events">2020-2021 GOLDFARB CENTER VIRTUAL EVENTS</a></li>
