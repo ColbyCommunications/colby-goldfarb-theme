@@ -429,7 +429,9 @@
                                 {{ $post['the_excerpt'] }}
                             </div>
                             <div class="gf-inner-link-wrapper">
+                            @php /*
                             <a onClick="fireGfModal(this.id); event.preventDefault();" id="gf-event-trigger-{{ $post['original_post_data']->ID }}" class="btn-underline" data-title="{{ $post['the_title'] }}" data-ev-date="{{ $post['gf_event_date'] }}" data-content="{{ $post['the_content'] }}" data-yt-id="{{ $post['lightbox_you_tube_embed_code'] }}" >Learn More</a>
+                            */@endphp
                             </div>
                         </article>
                     </div>
