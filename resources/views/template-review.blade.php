@@ -24,9 +24,6 @@
                     <div class="inner__shape">
                         <h1>{{ $data['annual_report_hero_title'] }}</h1>
                         {!! $data['annual_report_hero_text'] !!}
-                        @if ($data['annual_report_hero_text'])
-                            <a href="{{ $data['annual_report_hero_cta']['url'] }}"  {{ $data['annual_report_hero_cta']['target'] }} class="btn-underline"> {{ $data['annual_report_hero_cta']['text'] }}</a>
-                        @endif
                     </div>
                     <div class="hero-background-shape"></div>
                 </div>
