@@ -13,7 +13,7 @@
                     </svg>
                  </a>
                  <a href="#" style="padding-left: 0;" class="footer-gf-logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="150">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="250" height="150">
                     <style>
                         .st0{fill:#fff}
                     </style>
