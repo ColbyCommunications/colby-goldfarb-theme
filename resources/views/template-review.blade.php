@@ -147,7 +147,7 @@
 
             {{-- Cards Container --}}
                 <div class="container gf-cards-container">
-                    <div class="row">
+                    <div class="row gy-5">
                         @foreach( $data['virtual_events_post_data'] as $post )
                             @if( $post['is_featured'] == false )
                                 {{-- Standard Cards --}}
