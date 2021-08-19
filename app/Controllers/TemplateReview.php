@@ -96,7 +96,12 @@ class TemplateReview extends Controller
                 $post_row["the_title"] = $post->post_title;
                 $post_row["the_excerpt"] = $post->post_excerpt;
                 $post_row["the_content"] = wp_strip_all_tags($post->post_content);
-                $post_row["gf_event_date"] = $gf_event_date[0];
+
+                $format_in = 'Ymd';
+                $format_out = 'F d, Y';
+                $date = \DateTime::createFromFormat($format_in, $gf_event_date[0]);
+                $post_row["gf_event_date"] = $date->format( $format_out );
+
                 $post_row["lightbox_you_tube_embed_code"] = $lightbox_you_tube_embed_code[0];
 
             } else {
@@ -115,7 +120,10 @@ class TemplateReview extends Controller
                 $post_row["the_title"] = $post->post_title;
                 $post_row["the_excerpt"] = $post->post_excerpt;
                 $post_row["the_content"] = wp_strip_all_tags($post->post_content);
-                $post_row["gf_event_date"] = $gf_event_date[0];
+                $format_in = 'Ymd';
+                $format_out = 'F d, Y';
+                $date = \DateTime::createFromFormat($format_in, $gf_event_date[0]);
+                $post_row["gf_event_date"] = $date->format( $format_out );
                 $post_row["lightbox_you_tube_embed_code"] = $lightbox_you_tube_embed_code[0];
             }
 
