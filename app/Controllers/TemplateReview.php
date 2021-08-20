@@ -60,6 +60,7 @@ class TemplateReview extends Controller
             'post_type' => "virtual-events",
             'numberposts' => 17,
             'post__in' => $post_ids,
+            'orderby' =>  'post__in',
             'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash')
         ]);
 
