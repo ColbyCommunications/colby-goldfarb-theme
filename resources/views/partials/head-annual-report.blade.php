@@ -37,6 +37,10 @@
             modalContent.innerHTML = modalContentData;
             modalYT.src = modalEventYouTubeCode;
 
+            if (!modalEventYouTubeCode) {
+                modalYT.style.display = "none";
+            }
+
             var elem = document.querySelector('.gf-virtual-event-modal');
 
             // Set color to purple
@@ -56,6 +60,7 @@
             modalYT.src = "";
 
             var elem = document.querySelector('.gf-virtual-event-modal');
+            modalYT.style.display = "block";
             elem.style.display = 'none';
         }
 
