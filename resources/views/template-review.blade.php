@@ -297,8 +297,8 @@
                                 <div class="gf-col-image-bg-shape"></div>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <p>{!! $item['student_leadership_blockquote'] !!}</p>
+                        <div class="col-md-8 d-flex align-items-center">
+                            <div>{!! $item['student_leadership_blockquote'] !!}</div>
                         </div>
                     </div>
 
