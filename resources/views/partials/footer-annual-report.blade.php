@@ -2,6 +2,31 @@
     $data = TemplateReview::socialData();
 @endphp
 
+<section style="background-color: #fff;
+    background-image: url(https://goldfarbcenter.colby.edu/wp-content/uploads/2020/09/newsletter_bg-1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;transition: background .3s,border .3s,border-radius .3s,box-shadow .3s;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 90px 0 80px;">
+        <div style="display: flex;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;max-width: 700px;" class="text-center">
+            <div class="text-center">
+                <h3 style="color: #fff;
+                font-size: 30px;
+                font-weight: 600;font-family: libre-franklin,Sans-serif;">JOIN OUR MAILING LIST</h3>
+                <p style="font-family: libre-franklin,Sans-serif;color: #fff;" class="text-center">The best way to stay informed and engaged is to join our mailing list. You will know about upcoming events, major announcements, and funding opportunities. Put in your name and email below and become a part of the Goldfarb Center!</p>
+
+                <script> var _ctct_m = "e5fa71be0e2bb18f3856419cf58d266e"; </script>
+                <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+                <div class="ctct-inline-form" data-form-id="9e479f40-880d-4e70-9769-bf1026efafab"></div>
+            </div>
+        </div>
+    </div>
+</section>
 <footer class="gf-annual-report-footer">
     <div class="container">
        <div class="row">
