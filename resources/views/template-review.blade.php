@@ -112,6 +112,7 @@
         <div class="container">
             <div class="inner__wrapper">
                 <h3>{{ $data['goldfarb_center_virtual_events_header'] }}</h3>
+                {!! $data['goldfarb_center_virtual_events_text'] !!}
             </div>
 
             {{-- Swiper --}}

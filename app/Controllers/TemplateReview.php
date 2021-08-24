@@ -46,6 +46,7 @@ class TemplateReview extends Controller
 
         $goldfarb_center_virtual_events_title = get_field('goldfarb_center_virtual_events_title');
         $goldfarb_center_virtual_events_header = get_field('goldfarb_center_virtual_events_header');
+        $goldfarb_center_virtual_events_text = get_field('goldfarb_center_virtual_events_text');
         $virtual_events_posts = get_field('goldfarb_center_virtual_events_post_selector');
 
         $virtual_events_post_data = [];
@@ -275,6 +276,7 @@ class TemplateReview extends Controller
             // Virtual Event Fields
             "goldfarb_center_virtual_events_title" => $goldfarb_center_virtual_events_title,
             "goldfarb_center_virtual_events_header" => $goldfarb_center_virtual_events_header,
+            "goldfarb_center_virtual_events_text" => $goldfarb_center_virtual_events_text,
 
             "goldfarb_center_virtual_events_carousel_sub_field_data" => $goldfarb_center_virtual_events_carousel_sub_field_data,
 
