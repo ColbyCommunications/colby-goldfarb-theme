@@ -78,8 +78,11 @@ class TemplateReview extends Controller
             // var_dump($post_meta);
             // die(var_dump($lightbox_you_tube_embed_code));
 
-            // die(var_dump($gf_event_date));
+
             $cats = get_the_category($post->ID);
+            // var_dump($cats);
+
+            // die(var_dump($gf_event_date));
 
             $post_row = ["original_post_data" => $post];
             if( $is_featured_post == false ) {
@@ -90,7 +93,7 @@ class TemplateReview extends Controller
                 }
 
                 if ($cats) {
-                    $post['cats'] = true;
+                    $post_row['cats'] = true;
                     $post_row['category_name'] = $cats[0]->name;
                 }
 
@@ -114,7 +117,7 @@ class TemplateReview extends Controller
                 }
 
                 if ($cats) {
-                    $post['cats'] = true;
+                    $post_row['cats'] = true;
                     $post_row['category_name'] = $cats[0]->name;
                 }
 
@@ -221,7 +224,7 @@ class TemplateReview extends Controller
             $post_row = ["original_post_data" => $post];
 
             if ($cats) {
-                $post['cats'] = true;
+                $post_row['cats'] = true;
                 $post_row['category_name'] = $cats[0]->name;
             }
 
