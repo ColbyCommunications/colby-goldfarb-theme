@@ -2012,7 +2012,7 @@ p {
 .gf-virtual-event-modal {
     position: fixed;
     background-color: #304d89;
-    height: 90vh;
+    height: 90%;
     max-width: 1140px;
     width: 100%;
     z-index: 100000;
@@ -2021,6 +2021,13 @@ p {
     transform: translate(-50%, -50%);
     border-top-right-radius: 50px;
     display: none;
+    overflow: scroll;
+}
+@media (max-width: 500px) {
+    .gf-virtual-event-modal {
+        height: 100%;
+        border-top-right-radius: 0px;
+    }
 }
 .gf-virtual-event-modal .gf-close-modal {
     position: absolute;
@@ -2046,6 +2053,11 @@ p {
     margin-bottom: 20px;
     margin-left: 100px;
     position: relative;
+}
+@media (max-width: 500px) {
+    .gf-virtual-event-modal .gf-virtual-event-inner__wrapper .gf-event-date {
+        margin-left: 0px;
+    }
 }
 .gf-virtual-event-modal .gf-virtual-event-inner__wrapper .gf-event-date::before {
     content: '';
@@ -2093,6 +2105,7 @@ p {
     border-right: 6px solid #ffffff;
     padding-right: 20px;
     padding-bottom: 20px;
+    color: #ffffff;
 }
 .p1 a {
     color: #304d89;
