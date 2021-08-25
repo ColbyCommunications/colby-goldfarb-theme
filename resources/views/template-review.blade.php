@@ -405,7 +405,7 @@
                     <div class="gf-title-box">
                         <p class="gf-attribution-name">{{ $data['faculty_engagement_attribution'] }}<p>
                         <p class="gf-attribution-aff">
-                            {{ $data['franko_maisel_prize_attribution_caption'] }}
+                            {!! $data['faculty_engagement_attribution_caption'] !!}
                         </p>
                     </div>
                 </div>
