@@ -420,7 +420,7 @@
                     <div class="col-md-4">
                         <article class="gf-card">
                             <div class="gf-inner-content">
-                                @if($post['cats']): ?>
+                                @if($post['cats'])
                                     <span class="category-name">{{ $post['category_name'] }}</span>
                                 @endif
                                 <h4>{{ $post['the_title'] }}</h4>
