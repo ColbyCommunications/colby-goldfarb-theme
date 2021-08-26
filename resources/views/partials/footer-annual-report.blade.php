@@ -38,7 +38,7 @@
                     </svg>
                  </a>
                  <a href="#" style="width: 50%;padding-left: 0" class="footer-gf-logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 150">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 250 150">
                     <style>
                         .st0{fill:#fff}
                     </style>

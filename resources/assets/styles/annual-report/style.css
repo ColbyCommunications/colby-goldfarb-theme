@@ -1955,7 +1955,7 @@ p {
 .gf-annual-report-footer .gf-annual-report-footer-logos {
     display: flex;
     flex-flow: row nowrap;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 30px;
 }
 .gf-annual-report-footer .gf-annual-report-footer-logos a {
