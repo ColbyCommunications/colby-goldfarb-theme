@@ -50,7 +50,7 @@
            </div>
            <div class="col-md-6">
                 <div class="gf-small-paragraph-text">
-                    {{ $data['annual_theme_footer_address'] }}
+                    {!! $data['annual_theme_footer_address'] !!}
                 </div>
            </div>
 
