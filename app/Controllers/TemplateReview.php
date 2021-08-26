@@ -208,6 +208,7 @@ class TemplateReview extends Controller
 
         $posts = get_posts([
             'post_type' => "virtual-events",
+            'numberposts' => 8,
             'post__in' => $faculty_engagement_post_ids,
             'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash')
         ]);
