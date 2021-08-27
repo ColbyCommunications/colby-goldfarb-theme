@@ -6,7 +6,7 @@
 
 @section('content')
     @php
-        $data = TemplateReview::data();
+        $data = TemplateAnnualReview::data();
     @endphp
 
     {{-- Annual Report Hero --}}

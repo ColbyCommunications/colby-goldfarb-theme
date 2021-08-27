@@ -2,8 +2,9 @@
     function gsapIntro() {
         const tl = gsap.timeline();
 
-        if (window.screen.width >= 500) {
+        if (window.screen.width >= 1024) {
             tl.from('.gf-annual-report-logo', { y: 300 })
+                .to('.gf-annual-report-logo', { y: 0 })
                 .to('.gf-hero-overlay', { autoAlpha: 0 })
                 .from('.gf-tagline', { y: 250, autoAlpha: 1 })
                 .to('.gf-tagline', { y: 0, autoAlpha: 1 })
@@ -11,8 +12,9 @@
                 .to('.tagline-trigger', { y: 0, autoAlpha: 1 });
         }
 
-        if (window.screen.width <= 500) {
+        if (window.screen.width <= 1024) {
             tl.from('.gf-annual-report-logo', { y: 200 })
+                .to('.gf-annual-report-logo', { y: 0 })
                 .to('.gf-hero-overlay', { autoAlpha: 0 })
                 .from('.gf-tagline', { y: 210, autoAlpha: 1 })
                 .to('.gf-tagline', { y: 0, autoAlpha: 1 })
@@ -60,7 +62,7 @@
                 y: window.pageYOffset,
             };
 
-            if (scrollObject.y >= 200) {
+            if (scrollObject.y >= 1000) {
                 siteLogo.classList.add('gf-annual-report-logo-active');
             } else {
                 siteLogo.classList.remove('gf-annual-report-logo-active');

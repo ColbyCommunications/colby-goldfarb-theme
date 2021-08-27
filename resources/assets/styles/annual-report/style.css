@@ -624,6 +624,7 @@ p {
     .gf-intro-hero .inner__content .gf-tagline {
         flex-flow: column !important;
         align-items: flex-start !important;
+        margin-bottom: 20px;
     }
 }
 .gf-intro-hero .inner__content .gf-hero-headline {
@@ -652,6 +653,8 @@ p {
 @media (max-width: 500px) {
     .gf-intro-hero .inner__content .gf-hero-headline {
         margin-left: 70px;
+        line-height: 18px;
+        font-size: 18px;
     }
 }
 .gf-intro-hero .inner__content .gf-rule {
@@ -669,6 +672,11 @@ p {
     z-index: 2;
     margin-left: 50px;
 }
+@media (max-width: 550px) {
+    .gf-intro-hero .inner__content .inner__shape-container {
+        margin-left: 0px;
+    }
+}
 .gf-intro-hero .inner__content .inner__shape-container .inner__shape {
     max-width: 60%;
     border-top-right-radius: 50px;
@@ -676,9 +684,9 @@ p {
     padding: 30px;
     background-color: #ffffff;
 }
-@media (max-width: 550px) {
+@media (max-width: 1000px) {
     .gf-intro-hero .inner__content .inner__shape-container .inner__shape {
-        max-width: 90%;
+        max-width: 100% !important;
     }
 }
 .gf-intro-hero .inner__content .inner__shape-container .hero-background-shape {
@@ -702,9 +710,10 @@ p {
     top: 0;
     left: 0;
 }
-@media (max-width: 550px) {
+@media (max-width: 1000px) {
     .gf-intro-hero .inner__content .inner__shape-container .hero-background-shape {
-        max-width: 90%;
+        max-width: 100% !important;
+        height: 80%;
     }
 }
 .main-hero {
@@ -1423,7 +1432,7 @@ p {
     height: 110%;
 }
 .gf-student-leadership .btn-underline {
-    margin-left: 56px;
+    margin-left: 14px;
 }
 @media (max-width: 500px) {
     .gf-student-leadership .btn-underline {
@@ -1431,7 +1440,7 @@ p {
     }
 }
 .gf-student-leadership .gf-blockquote {
-    margin-left: 40px;
+    margin-left: 0px;
 }
 @media (max-width: 500px) {
     .gf-student-leadership .gf-blockquote {
@@ -1665,6 +1674,7 @@ p {
 }
 .virtual-events a:hover {
     color: #397881;
+    cursor: pointer;
 }
 .virtual-events a:hover::before {
     height: 110%;
@@ -1964,6 +1974,9 @@ p {
     /* padding-right: 30px; */
 }
 @media (max-width: 500px) {
+    .gf-annual-report-footer .gf-annual-report-footer-logos {
+        margin-bottom: 0px;
+    }
     .gf-annual-report-footer .gf-annual-report-footer-logos a {
         border-right: 0px;
         width: 80px;
@@ -2021,7 +2034,7 @@ p {
     transform: translate(-50%, -50%);
     border-top-right-radius: 50px;
     display: none;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 @media (max-width: 500px) {
     .gf-virtual-event-modal {
@@ -2146,6 +2159,7 @@ p {
     padding-bottom: 0;
     margin-bottom: -40px;
     margin-top: 46px;
+    height: auto;
 }
 .swiper-container .gf-slider-arrows {
     transform: translateY(46px);
