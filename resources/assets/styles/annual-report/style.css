@@ -567,10 +567,17 @@ p {
         margin-left: 35px;
     }
 }
+@media (max-width: 1024px) {
+    .gf-annual-navbar .gf-annual-report-logo {
+        margin-top: -50px;
+        max-width: 260px;
+    }
+}
 @media (max-width: 500px) {
     .gf-annual-navbar .gf-annual-report-logo {
-        margin-left: 70px;
-        max-width: 240px;
+        margin-left: 50px;
+        margin-top: -50px;
+        max-width: 180px;
     }
 }
 .gf-intro-hero {
@@ -587,6 +594,12 @@ p {
 .gf-intro-hero h1 {
     color: #304d89;
     margin-bottom: 25px;
+}
+@media (max-width: 1024px) {
+    .gf-intro-hero h1 {
+        font-size: 48px;
+        line-height: 50px;
+    }
 }
 @media (max-width: 500px) {
     .gf-intro-hero h1 {
@@ -1048,6 +1061,7 @@ p {
 @media (max-width: 500px) {
     .gf-slider__wrapper .gf-background-shape {
         height: 95%;
+        top: 15%;
     }
 }
 .swiper-container {
@@ -1086,7 +1100,7 @@ p {
 @media (max-width: 500px) {
     .swiper-container .gf-slider-arrows {
         margin-right: 40px;
-        top: 30px;
+        top: 0px;
     }
 }
 .swiper-container .swiper-button-prev::after {
@@ -1110,10 +1124,10 @@ p {
     border-radius: 50%;
 }
 .swiper-container .swiper-pagination {
-    position: static;
+    position: relative;
     text-align: left;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 22px;
 }
 .swiper-container .swiper-pagination-bullet {
     height: 15px;
