@@ -1,8 +1,10 @@
-(() => {
+export default () => {
     function gsapIntro() {
+        console.log('gsap');
         const tl = gsap.timeline();
 
-        if (window.screen.width / window.screen.height > 2) {
+        if (window.innerWidth / window.innerHeight > 1.5) {
+            console.log('2');
             tl.from('.gf-annual-report-logo', { y: 200 })
                 .to('.gf-annual-report-logo', { y: 0 })
                 .to('.gf-hero-overlay', { autoAlpha: 0 })
@@ -11,6 +13,7 @@
                 .from('.tagline-trigger', { y: 100, autoAlpha: 0 })
                 .to('.tagline-trigger', { y: 0, autoAlpha: 1 });
         } else if (window.screen.width >= 1024) {
+            console.log('>= 1024');
             tl.from('.gf-annual-report-logo', { y: 300 })
                 .to('.gf-annual-report-logo', { y: 0 })
                 .to('.gf-hero-overlay', { autoAlpha: 0 })
@@ -19,6 +22,7 @@
                 .from('.tagline-trigger', { y: 100, autoAlpha: 0 })
                 .to('.tagline-trigger', { y: 0, autoAlpha: 1 });
         } else if (window.screen.width <= 1024) {
+            console.log('<= 1024');
             tl.from('.gf-annual-report-logo', { y: 200 })
                 .to('.gf-annual-report-logo', { y: 0 })
                 .to('.gf-hero-overlay', { autoAlpha: 0 })
@@ -96,8 +100,14 @@
         }
     }
 
+    function reportWindowSize() {
+        console.log(window.innerWidth / window.innerHeight);
+    }
+
+    window.onresize = reportWindowSize;
+
     toggleMenu();
     gsapIntro();
     scrollPosition();
     fireGfModal();
-})();
+};
