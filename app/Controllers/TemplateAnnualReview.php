@@ -216,9 +216,7 @@ class TemplateAnnualReview extends Controller
         foreach( $posts as $post ) {
 
             $post_meta = get_post_meta($post->ID);
-            // $post_thumbnail = get_the_post_thumbnail_url($post->ID);
 
-            // die(var_dump($post));
             $cats = get_the_category($post->ID);
             $lightbox_you_tube_embed_code = $post_meta['lightbox_you_tube_embed_code'];
             $gf_event_date = $post_meta['gf_event_date'];
@@ -235,6 +233,7 @@ class TemplateAnnualReview extends Controller
             $post_row["the_content"] = $post->post_content;
             $post_row["gf_event_date"] = $gf_event_date[0];
             $post_row["lightbox_you_tube_embed_code"] = htmlspecialchars(json_encode($lightbox_you_tube_embed_code));
+            $post_row["secondary_excerpt"] = $post_meta["secondary_excerpt"];
 
             $faculty_engagement_research_posts_data[] = $post_row;
         }
