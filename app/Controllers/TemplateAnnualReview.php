@@ -233,7 +233,7 @@ class TemplateAnnualReview extends Controller
             $post_row["the_content"] = $post->post_content;
             $post_row["gf_event_date"] = $gf_event_date[0];
             $post_row["lightbox_you_tube_embed_code"] = htmlspecialchars(json_encode($lightbox_you_tube_embed_code));
-            $post_row["secondary_excerpt"] = $post_meta["secondary_excerpt"];
+            $post_row["secondary_excerpt"] = $post_meta["secondary_excerpt"][0];
 
             $faculty_engagement_research_posts_data[] = $post_row;
         }
