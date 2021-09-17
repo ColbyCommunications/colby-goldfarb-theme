@@ -31,6 +31,11 @@
             scrub: 1, // I like the 1 sec delay, set to true for exact anime on scroll
             markers: false,
         });
+
+        const heroInner = document.querySelector(
+            '.gf-intro-hero .inner__content .inner__shape-container'
+        );
+        heroInner.style.display = 'block';
     }
 
     function toggleMenu() {
