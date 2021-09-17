@@ -32,11 +32,10 @@
             markers: false,
         });
 
-        const heroInner = document.querySelector('inner__shape-container');
-        // const gfLogo = document.querySelector('.gf-annual-report-logo');
-
+        const heroInner = document.querySelector(
+            '.gf-intro-hero .inner__content .inner__shape-container'
+        );
         heroInner.style.display = 'block';
-        // gfLogo.style.display = 'block';
     }
 
     function toggleMenu() {
