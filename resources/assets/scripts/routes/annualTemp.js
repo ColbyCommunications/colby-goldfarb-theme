@@ -31,6 +31,12 @@
             scrub: 1, // I like the 1 sec delay, set to true for exact anime on scroll
             markers: false,
         });
+
+        const heroInner = document.querySelector('inner__shape-container');
+        // const gfLogo = document.querySelector('.gf-annual-report-logo');
+
+        heroInner.style.display = 'block';
+        // gfLogo.style.display = 'block';
     }
 
     function toggleMenu() {

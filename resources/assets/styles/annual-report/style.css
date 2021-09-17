@@ -2413,3 +2413,8 @@ p {
     .ctct-form-footer-privacy-link {
     color: #fff !important;
 }
+
+.inner__shape-container,
+ {
+    display: none;
+}
