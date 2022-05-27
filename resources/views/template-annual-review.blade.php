@@ -424,7 +424,7 @@
                                     <span class="category-name">{{ $post['category_name'] }}</span>
                                 @endif
                                 <h4>{{ $post['the_title'] }}</h4>
-                                {{ $post['the_excerpt'] }}
+                                {{ $post['secondary_excerpt'] }}
                             </div>
                             <div class="gf-inner-link-wrapper">
                             @php /*
