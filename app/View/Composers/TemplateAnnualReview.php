@@ -6,8 +6,23 @@ use Roots\Acorn\View\Composer;
 
 class TemplateAnnualReview extends Composer
 {
-    public function data()
+
+    /**
+     * This tells the Composer that it should bind data to the 'example'
+     * partial.
+     */
+    protected static $views = [
+        'template-annual-review',
+        'partials.footer-annual-review',
+    ];
+    
+    /**
+     * This will make the variable `$roots` available in the 'example' partial
+     * with the value described here.
+     */
+    public function with()
     {
+
         // Annual Report Hero Fields
         $annual_report_hero_image = get_field('annual_report_hero_image');
         $annual_report_hero_subtitle = get_field('annual_report_hero_subtitle');
@@ -252,97 +267,95 @@ class TemplateAnnualReview extends Composer
         $annual_theme_policy_symposium_attribution_caption = get_field('annual_theme_policy_symposium_attribution_caption');
 
         return [
-            // Annual Report Hero Fields
-            "annual_report_hero_image" => $annual_report_hero_image,
-            "annual_report_hero_subtitle" => $annual_report_hero_subtitle,
-            "annual_report_hero_years" => $annual_report_hero_years,
-            "annual_report_hero_title" => $annual_report_hero_title,
-            "annual_report_hero_text" => $annual_report_hero_text,
-            "annual_report_hero_cta" => $annual_report_hero_cta,
+            'data' => [
+                // Annual Report Hero Fields
+                "annual_report_hero_image" => $annual_report_hero_image,
+                "annual_report_hero_subtitle" => $annual_report_hero_subtitle,
+                "annual_report_hero_years" => $annual_report_hero_years,
+                "annual_report_hero_title" => $annual_report_hero_title,
+                "annual_report_hero_text" => $annual_report_hero_text,
+                "annual_report_hero_cta" => $annual_report_hero_cta,
 
-            // Letter From The Executive Fields
-            "letter_section_title" => $letter_section_title,
-            "letter_section_image" => $letter_section_image,
-            "letter_section_image_attribution_title" => $letter_section_image_attribution_title,
-            "letter_section_image_attribution_text" => $letter_section_image_attribution_text,
-            "letter_section_text" => $letter_section_text,
+                // Letter From The Executive Fields
+                "letter_section_title" => $letter_section_title,
+                "letter_section_image" => $letter_section_image,
+                "letter_section_image_attribution_title" => $letter_section_image_attribution_title,
+                "letter_section_image_attribution_text" => $letter_section_image_attribution_text,
+                "letter_section_text" => $letter_section_text,
 
-            // Annual Theme Overview Fields
-            "annual_theme_overview_title" => $annual_theme_overview_title,
-            "annual_theme_overview_text" => $annual_theme_overview_text,
-            "annual_theme_overview_stat_number" => $annual_theme_overview_stat_number,
-            "annual_theme_overview_stat_number_caption" => $annual_theme_overview_stat_number_caption,
-            "annual_theme_overview_attribution_box_text" => $annual_theme_overview_attribution_box_text,
-            "annual_theme_overview_attribution_name" => $annual_theme_overview_attribution_name,
-            "annual_theme_overview_attribution_caption" => $annual_theme_overview_attribution_caption,
-
-
-            // Virtual Event Fields
-            "goldfarb_center_virtual_events_title" => $goldfarb_center_virtual_events_title,
-            "goldfarb_center_virtual_events_header" => $goldfarb_center_virtual_events_header,
-            "goldfarb_center_virtual_events_text" => $goldfarb_center_virtual_events_text,
-
-            "goldfarb_center_virtual_events_carousel_sub_field_data" => $goldfarb_center_virtual_events_carousel_sub_field_data,
-
-            "virtual_events_post_data" => $virtual_events_post_data,
-
-            // Student Leadership Fields
-            "student_leadership_title" => $student_leadership_title,
-            "student_leadership_header" => $student_leadership_header,
-            "student_leadership_text" => $student_leadership_text,
-
-            "student_leadership_carousel_sub_field_data" => $student_leadership_carousel_sub_field_data,
-            "student_leadership_info_block_sub_field_data" => $student_leadership_info_block_sub_field_data,
+                // Annual Theme Overview Fields
+                "annual_theme_overview_title" => $annual_theme_overview_title,
+                "annual_theme_overview_text" => $annual_theme_overview_text,
+                "annual_theme_overview_stat_number" => $annual_theme_overview_stat_number,
+                "annual_theme_overview_stat_number_caption" => $annual_theme_overview_stat_number_caption,
+                "annual_theme_overview_attribution_box_text" => $annual_theme_overview_attribution_box_text,
+                "annual_theme_overview_attribution_name" => $annual_theme_overview_attribution_name,
+                "annual_theme_overview_attribution_caption" => $annual_theme_overview_attribution_caption,
 
 
-            "student_internships_title" => $student_internships_title,
-            "student_internships_heading" => $student_internships_heading,
-            "student_internships_text" => $student_internships_text,
-            "student_internships_stat_number" => $student_internships_stat_number,
-            "student_internships_stat_caption" => $student_internships_stat_caption,
+                // Virtual Event Fields
+                "goldfarb_center_virtual_events_title" => $goldfarb_center_virtual_events_title,
+                "goldfarb_center_virtual_events_header" => $goldfarb_center_virtual_events_header,
+                "goldfarb_center_virtual_events_text" => $goldfarb_center_virtual_events_text,
 
-            "student_internships_list_sub_field_data" => $student_internships_list_sub_field_data,
+                "goldfarb_center_virtual_events_carousel_sub_field_data" => $goldfarb_center_virtual_events_carousel_sub_field_data,
 
-            "franko_maisel_prize_title" => $franko_maisel_prize_title,
-            "franko_maisel_prize_image" => $franko_maisel_prize_image,
-            "franko_maisel_prize_header" => $franko_maisel_prize_header,
-            "franko_maisel_prize_text" => $franko_maisel_prize_text,
-            "franko_maisel_prize_attiribution" => $franko_maisel_prize_attiribution,
-            "franko_maisel_prize_attribution_caption" => $franko_maisel_prize_attribution_caption,
+                "virtual_events_post_data" => $virtual_events_post_data,
 
-            "faculty_engagement_image" => $faculty_engagement_image,
-            "faculty_engagement_title" => $faculty_engagement_title,
-            "faculty_engagement_heading" => $faculty_engagement_heading,
-            "faculty_engagement_text" => $faculty_engagement_text,
-            "faculty_engagement_attribution" => $faculty_engagement_attribution,
-            "faculty_engagement_attribution_caption" => $faculty_engagement_attribution_caption,
+                // Student Leadership Fields
+                "student_leadership_title" => $student_leadership_title,
+                "student_leadership_header" => $student_leadership_header,
+                "student_leadership_text" => $student_leadership_text,
 
-            "faculty_engagement_research_posts_data" => $faculty_engagement_research_posts_data,
+                "student_leadership_carousel_sub_field_data" => $student_leadership_carousel_sub_field_data,
+                "student_leadership_info_block_sub_field_data" => $student_leadership_info_block_sub_field_data,
 
-            "annual_theme_policy_symposium_title" => $annual_theme_policy_symposium_title,
-            "annual_theme_policy_symposium_featured_image" => $annual_theme_policy_symposium_featured_image,
-            "annual_theme_policy_symposium_heading" => $annual_theme_policy_symposium_heading,
-            "annual_theme_policy_symposium_text" => $annual_theme_policy_symposium_text,
-            "annual_theme_policy_symposium_sidebar_image" => $annual_theme_policy_symposium_sidebar_image,
-            "annual_theme_policy_symposium_attribution" => $annual_theme_policy_symposium_attribution,
-            "annual_theme_policy_symposium_attribution_caption" => $annual_theme_policy_symposium_attribution_caption,
 
-            "annual_theme_footer_address" => get_field('annual_theme_footer_address'),
-            "social_facebook" => get_field('annual_theme_facebook_url'),
-            "social_instagram" => get_field('annual_theme_instagram_url'),
-            "social_twitter" => get_field('annual_theme_twitter_url'),
-            "social_you_tube" => get_field('annual_theme_you_tube_url'),
-        ];
-    }
+                "student_internships_title" => $student_internships_title,
+                "student_internships_heading" => $student_internships_heading,
+                "student_internships_text" => $student_internships_text,
+                "student_internships_stat_number" => $student_internships_stat_number,
+                "student_internships_stat_caption" => $student_internships_stat_caption,
 
-    public function socialData()
-    {
-        return [
-            "annual_theme_footer_address" => get_field('annual_theme_footer_address'),
-            "social_facebook" => get_field('annual_theme_facebook_url'),
-            "social_instagram" => get_field('annual_theme_instagram_url'),
-            "social_twitter" => get_field('annual_theme_twitter_url'),
-            "social_you_tube" => get_field('annual_theme_you_tube_url'),
+                "student_internships_list_sub_field_data" => $student_internships_list_sub_field_data,
+
+                "franko_maisel_prize_title" => $franko_maisel_prize_title,
+                "franko_maisel_prize_image" => $franko_maisel_prize_image,
+                "franko_maisel_prize_header" => $franko_maisel_prize_header,
+                "franko_maisel_prize_text" => $franko_maisel_prize_text,
+                "franko_maisel_prize_attiribution" => $franko_maisel_prize_attiribution,
+                "franko_maisel_prize_attribution_caption" => $franko_maisel_prize_attribution_caption,
+
+                "faculty_engagement_image" => $faculty_engagement_image,
+                "faculty_engagement_title" => $faculty_engagement_title,
+                "faculty_engagement_heading" => $faculty_engagement_heading,
+                "faculty_engagement_text" => $faculty_engagement_text,
+                "faculty_engagement_attribution" => $faculty_engagement_attribution,
+                "faculty_engagement_attribution_caption" => $faculty_engagement_attribution_caption,
+
+                "faculty_engagement_research_posts_data" => $faculty_engagement_research_posts_data,
+
+                "annual_theme_policy_symposium_title" => $annual_theme_policy_symposium_title,
+                "annual_theme_policy_symposium_featured_image" => $annual_theme_policy_symposium_featured_image,
+                "annual_theme_policy_symposium_heading" => $annual_theme_policy_symposium_heading,
+                "annual_theme_policy_symposium_text" => $annual_theme_policy_symposium_text,
+                "annual_theme_policy_symposium_sidebar_image" => $annual_theme_policy_symposium_sidebar_image,
+                "annual_theme_policy_symposium_attribution" => $annual_theme_policy_symposium_attribution,
+                "annual_theme_policy_symposium_attribution_caption" => $annual_theme_policy_symposium_attribution_caption,
+
+                "annual_theme_footer_address" => get_field('annual_theme_footer_address'),
+                "social_facebook" => get_field('annual_theme_facebook_url'),
+                "social_instagram" => get_field('annual_theme_instagram_url'),
+                "social_twitter" => get_field('annual_theme_twitter_url'),
+                "social_you_tube" => get_field('annual_theme_you_tube_url'),
+            ],
+            "socialData" => [
+                "annual_theme_footer_address" => get_field('annual_theme_footer_address'),
+                "social_facebook" => get_field('annual_theme_facebook_url'),
+                "social_instagram" => get_field('annual_theme_instagram_url'),
+                "social_twitter" => get_field('annual_theme_twitter_url'),
+                "social_you_tube" => get_field('annual_theme_you_tube_url'),
+            ]
         ];
     }
 }
