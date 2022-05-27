@@ -23,11 +23,11 @@ add_action(
         wp_register_style('material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons+Sharp');
         wp_enqueue_style('material-icons');
 
-        if (strpos(get_the_title(), 'Annual Report') === true) {
+        if (strpos(get_the_title(), 'Annual Report') !== false) {
             wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.10.2/css/all.css', array(), '5.10.2');
             wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css', array(), '5.1.0');
-            wp_enqueue_style('annual_report_css', \Roots\asset('styles/annua-report.css'), array(), '1.0.0');
-            wp_enqueue_script('annual_report_js', \Roots\asset('scripts/annualTemp.js'), array(), '1.0.0', true);
+            wp_enqueue_style('annual_report_css',  get_template_directory_uri() . '/resources/styles/annual-report.css', array(), '1.0.0');
+            wp_enqueue_script('annual_report_js', get_template_directory_uri() . '/resources/scripts/annualTemp.js', array(), '1.0.0', true);
         }
 
     }, 100
