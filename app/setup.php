@@ -15,7 +15,7 @@ use function Roots\bundle;
  */
 add_action(
     'wp_enqueue_scripts', function () {
-        bundle('app')->enqueue();
+        
 
         wp_register_style('typekit', 'https://use.typekit.net/djf7stt.css');
         wp_enqueue_style('typekit');
@@ -28,6 +28,8 @@ add_action(
             wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css', array(), '5.1.0');
             wp_enqueue_style('annual_report_css',  get_template_directory_uri() . '/resources/styles/annual-report.css', array(), '1.0.0');
             wp_enqueue_script('annual_report_js', get_template_directory_uri() . '/resources/scripts/annualTemp.js', array(), '1.0.0', true);
+        } else {
+            bundle('app')->enqueue();
         }
 
     }, 100

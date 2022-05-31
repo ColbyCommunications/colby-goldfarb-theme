@@ -46,7 +46,7 @@
            </div>
            <div class="col-md-6">
                 <div class="gf-small-paragraph-text">
-                    {!! $data['socialData']['annual_theme_footer_address'] !!}
+                    {!! $socialData['annual_theme_footer_address'] !!}
                 </div>
            </div>
 
@@ -55,16 +55,16 @@
                 E: <a href="mailto:goldfarb@colby.edu">goldfarb@colby.edu</a></p>
                 <nav>
                     <ul class="gf-social-nav">
-                        @if($data['socialData']['social_facebook'])
+                        @if($socialData['social_facebook'])
                             <li><a href="{{ $data['socialData']['social_facebook']['url'] }}" {{ $data['socialData']['social_facebook']['target'] }} aria-label="{{ $data['socialData']['social_facebook']['text'] }}"><i class="fab fa-facebook-f"></i></a></li>
                         @endif
-                        @if($data['socialData']['social_instagram'])
+                        @if($socialData['social_instagram'])
                             <li><a href="{{ $data['socialData']['social_instagram']['url']}}" {{ $data['socialData']['social_instagram']['target'] }} aria-label="{{ $data['socialData']['social_instagram']['text'] }}"><i class="fab fa-instagram"></i></a></li>
                         @endif
-                        @if($data['socialData']['social_twitter'])
+                        @if($socialData['social_twitter'])
                             <li><a href="{{ $data['socialData']['social_twitter']['url'] }}" {{ $data['socialData']['social_twitter']['target'] }} aria-label="{{ $data['socialData']['social_twitter']['text'] }}"><i class="fab fa-twitter"></i></a></li>
                         @endif
-                        @if($data['socialData']['social_you_tube'])
+                        @if($socialData['social_you_tube'])
                             <li><a href="{{ $data['socialData']['social_you_tube']['url'] }}" {{ $data['socialData']['social_you_tube']['target'] }} aria-label="{{ $data['socialData']['social_you_tube']['text'] }}"><i class="fab fa-youtube"></i></a></li>
                         @endif
                     </ul>
