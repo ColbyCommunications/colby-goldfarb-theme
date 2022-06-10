@@ -37,21 +37,34 @@
 }
 
 /* Map Tailwind */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
 h1 {
-    @apply text-3xl;
-    @apply mb-4;
+    font-size: 2.5rem;
 }
 
 h2 {
-    @apply text-2xl;
-    @apply mt-8;
-    @apply mb-4;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 h3 {
-    @apply text-xl;
-    @apply mt-6;
-    @apply mb-4;
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
 }
 
 p {
