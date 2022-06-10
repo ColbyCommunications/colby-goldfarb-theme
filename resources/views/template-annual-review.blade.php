@@ -5,9 +5,6 @@
 @extends('layouts.annual-report-2020')
 
 @section('content')
-    @php
-        $data = TemplateAnnualReview::data();
-    @endphp
 
     {{-- Annual Report Hero --}}
     <section class="gf-intro-hero" style="background-image:url('{{ $data['annual_report_hero_image'] }}')">
