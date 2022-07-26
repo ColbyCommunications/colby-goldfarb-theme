@@ -27,76 +27,82 @@
             </div>
         </div>
     </section>
+
     {{-- Letter From The Executive --}}
-    <section id="gf_image_text_section" class="gf-image-text-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 order-lg-2">
-                    <h2>{{ $data['letter_section_title'] }}</h2>
-                    {!! $data['letter_section_text'] !!}
-                </div>
-                <div class="col-lg-5 order-lg-1">
-                    <div class="gf-image-wrapper">
-                        <div class="gf-image" style="background-image:url('{{ $data['letter_section_image']['url'] }}')" aria-label="Alt Text Here"></div>
-                        <div class="gf-image-bg-shape"></div>
+    @if ($data['show_section_letter'])
+        <section id="gf_image_text_section" class="gf-image-text-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 order-lg-2">
+                        <h2>{{ $data['letter_section_title'] }}</h2>
+                        {!! $data['letter_section_text'] !!}
                     </div>
-                    <div class="gf-title-box">
-                        <p class="gf-attribution-name">{{ $data['letter_section_image_attribution_title'] }}<p>
-                        <div class="gf-attribution-aff">
-                            {!! $data['letter_section_image_attribution_text'] !!}
+                    <div class="col-lg-5 order-lg-1">
+                        <div class="gf-image-wrapper">
+                            <div class="gf-image" style="background-image:url('{{ $data['letter_section_image']['url'] }}')" aria-label="Alt Text Here"></div>
+                            <div class="gf-image-bg-shape"></div>
+                        </div>
+                        <div class="gf-title-box">
+                            <p class="gf-attribution-name">{{ $data['letter_section_image_attribution_title'] }}<p>
+                            <div class="gf-attribution-aff">
+                                {!! $data['letter_section_image_attribution_text'] !!}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="yellow-circle-ornanament"></div>
-    </section>
+            <div class="yellow-circle-ornanament"></div>
+        </section>
+    @endif
 
     {{-- Annual Theme Overview --}}
-    <section class="annual-overview" id="annual_overview">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5"></div>
-                <div class="col-md-7">
-                    <h2>{{ $data['annual_theme_overview_title'] }}</h2>
+    @if ($data['show_section_annual_theme'])
+        <section class="annual-overview" id="annual_overview">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7">
+                        <h2>{{ $data['annual_theme_overview_title'] }}</h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="inner__wrapper">
-                        {!! $data['annual_theme_overview_text'] !!}
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <span class="gf-big-number">
-                        {{ $data['annual_theme_overview_stat_number'] }}
-                    </span>
-                    <div class="gf-attribution-aff">
-                        {!! $data['annual_theme_overview_stat_number_caption'] !!}
-                    </div>
-                    <div class="gf-fancy-text-wrapper">
-                        <div class="gf-fancy-text">
-                            <p class="gf-blockquote">
-                                {{ $data['annual_theme_overview_attribution_box_text'] }}
-                            </p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="inner__wrapper">
+                            {!! $data['annual_theme_overview_text'] !!}
                         </div>
-                        <div class="gf-fancy-text-shape"></div>
                     </div>
-                    <div class="gf-title-box">
-                        <p class="gf-attribution-name">{{ $data['annual_theme_overview_attribution_name'] }}<p>
+                    <div class="col-md-4">
+                        <span class="gf-big-number">
+                            {{ $data['annual_theme_overview_stat_number'] }}
+                        </span>
                         <div class="gf-attribution-aff">
-                            {!! $data['annual_theme_overview_attribution_caption'] !!}
+                            {!! $data['annual_theme_overview_stat_number_caption'] !!}
                         </div>
-                    </div>
+                        <div class="gf-fancy-text-wrapper">
+                            <div class="gf-fancy-text">
+                                <p class="gf-blockquote">
+                                    {{ $data['annual_theme_overview_attribution_box_text'] }}
+                                </p>
+                            </div>
+                            <div class="gf-fancy-text-shape"></div>
+                        </div>
+                        <div class="gf-title-box">
+                            <p class="gf-attribution-name">{{ $data['annual_theme_overview_attribution_name'] }}<p>
+                            <div class="gf-attribution-aff">
+                                {!! $data['annual_theme_overview_attribution_caption'] !!}
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     {{-- Virtual Events --}}
+    @if ($data['show_section_virtual_events'])
     <section class="swiper-carousel virtual-events" id="virtual_events">
         <div class="container">
             <div class="row">
@@ -216,8 +222,10 @@
             </script>
         </div>
     </section>
+    @endif
 
     {{-- Student Leadership --}}
+    @if ($data['show_section_student_leadership'])
     <section class="gf-student-leadership" id="gf_student_leadership">
         <div class="container">
             <div class="row">
@@ -305,8 +313,10 @@
 
         <div class="yellow-circle-ornanament"></div>
     </section>
+    @endif
 
     {{-- Student Internships --}}
+    @if ($data['show_section_student_internships'])
     <section class="gf-student-internships" id="gf_student_internships">
         <div class="container">
             <div class="row">
@@ -351,8 +361,10 @@
             </ul>
         <div class="yellow-circle-ornanament"></div>
     </section>
+    @endif
 
     {{-- Franko-Maisel Prize --}}
+    @if ($data['show_section_franko_maisel'])
     <section class="gf-image-text-section gf-franko-maisel" id="gf_franko_maisel">
         <div class="container">
             <div class="row">
@@ -377,8 +389,10 @@
         </div>
         <div class="yellow-circle-ornanament"></div>
     </section>
+    @endif
 
     {{-- Faculty Engagement And Research --}}
+    @if ($data['show_section_faculty_engagement'])
     <section class="gf-faculty-engaugement" id="gf_faculty_engaugement">
         <div class="container">
             <div class="row">
@@ -435,8 +449,10 @@
         </div>
         <div class="yellow-circle-ornanament"></div>
     </section>
+    @endif
 
     {{-- Annual Theme & Policy Symposium --}}
+    @if ($data['show_section_annual_theme_policy_symposium'])
     <section class="policy-symposium" id="policy_symposium">
         <div class="container">
             <div class="row">
@@ -466,5 +482,5 @@
         </div>
         <div class="yellow-circle-ornanament"></div>
     </section>
-
+    @endif
 @endsection

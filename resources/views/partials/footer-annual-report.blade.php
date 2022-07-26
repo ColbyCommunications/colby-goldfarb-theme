@@ -1,3 +1,4 @@
+
 <section style="background-color: #fff;
     background-image: url(https://goldfarbcenter.colby.edu/wp-content/uploads/2020/09/newsletter_bg-1.jpg);
     background-position: center center;
@@ -46,7 +47,7 @@
            </div>
            <div class="col-md-6">
                 <div class="gf-small-paragraph-text">
-                    {!! $socialData['annual_theme_footer_address'] !!}
+                    {!! $data['annual_theme_footer_address'] !!}
                 </div>
            </div>
 
@@ -55,17 +56,17 @@
                 E: <a href="mailto:goldfarb@colby.edu">goldfarb@colby.edu</a></p>
                 <nav>
                     <ul class="gf-social-nav">
-                        @if($socialData['social_facebook'])
-                            <li><a href="{{ $data['socialData']['social_facebook']['url'] }}" {{ $data['socialData']['social_facebook']['target'] }} aria-label="{{ $data['socialData']['social_facebook']['text'] }}"><i class="fab fa-facebook-f"></i></a></li>
+                        @if($data['social_facebook'])
+                            <li><a href="{{ $data['social_facebook']['url'] }}" {{ $data['social_facebook']['target'] }} aria-label="{{ $data['social_facebook']['text'] }}"><i class="fab fa-facebook-f"></i></a></li>
                         @endif
-                        @if($socialData['social_instagram'])
-                            <li><a href="{{ $data['socialData']['social_instagram']['url']}}" {{ $data['socialData']['social_instagram']['target'] }} aria-label="{{ $data['socialData']['social_instagram']['text'] }}"><i class="fab fa-instagram"></i></a></li>
+                        @if($data['social_instagram'])
+                            <li><a href="{{ $data['social_instagram']['url']}}" {{ $data['social_instagram']['target'] }} aria-label="{{ $data['social_instagram']['text'] }}"><i class="fab fa-instagram"></i></a></li>
                         @endif
-                        @if($socialData['social_twitter'])
-                            <li><a href="{{ $data['socialData']['social_twitter']['url'] }}" {{ $data['socialData']['social_twitter']['target'] }} aria-label="{{ $data['socialData']['social_twitter']['text'] }}"><i class="fab fa-twitter"></i></a></li>
+                        @if($data['social_twitter'])
+                            <li><a href="{{ $data['social_twitter']['url'] }}" {{ $data['social_twitter']['target'] }} aria-label="{{ $data['social_twitter']['text'] }}"><i class="fab fa-twitter"></i></a></li>
                         @endif
-                        @if($socialData['social_you_tube'])
-                            <li><a href="{{ $data['socialData']['social_you_tube']['url'] }}" {{ $data['socialData']['social_you_tube']['target'] }} aria-label="{{ $data['socialData']['social_you_tube']['text'] }}"><i class="fab fa-youtube"></i></a></li>
+                        @if($data['social_you_tube'])
+                            <li><a href="{{ $data['social_you_tube']['url'] }}" {{ $data['social_you_tube']['target'] }} aria-label="{{ $data['social_you_tube']['text'] }}"><i class="fab fa-youtube"></i></a></li>
                         @endif
                     </ul>
                 </nav>

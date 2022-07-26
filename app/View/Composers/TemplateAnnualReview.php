@@ -12,8 +12,10 @@ class TemplateAnnualReview extends Composer
      * partial.
      */
     protected static $views = [
+        'partials.header-annual-report',
+        'partials.footer-annual-report',
         'template-annual-review',
-        'partials.footer-annual-review',
+        
     ];
     
     /**
@@ -37,7 +39,9 @@ class TemplateAnnualReview extends Composer
         $letter_section_image_attribution_title = get_field('letter_section_image_attribution_title');
         $letter_section_image_attribution_text = get_field('letter_section_image_attribution_text');
         $letter_section_text = get_field('letter_section_text');
+        $show_section_letter = get_field('show_section_letter');
 
+        // die(var_dump($show_section_letter));
         // Annual Theme Overview  Fields
         $annual_theme_overview_title = get_field('annual_theme_overview_title');
         $annual_theme_overview_text = get_field('annual_theme_overview_text');
@@ -46,6 +50,7 @@ class TemplateAnnualReview extends Composer
         $annual_theme_overview_attribution_box_text = strip_tags(get_field('annual_theme_overview_attribution_box_text'));
         $annual_theme_overview_attribution_name = get_field('annual_theme_overview_attribution_name');
         $annual_theme_overview_attribution_caption = get_field('annual_theme_overview_attribution_caption');
+        $show_section_annual_theme = get_field('show_section_annual_theme');
 
         // Virtual Event Fields
         $goldfarb_center_virtual_events_carousel_sub_field_data = [];
@@ -63,6 +68,7 @@ class TemplateAnnualReview extends Composer
         $goldfarb_center_virtual_events_header = get_field('goldfarb_center_virtual_events_header');
         $goldfarb_center_virtual_events_text = get_field('goldfarb_center_virtual_events_text');
         $virtual_events_posts = get_field('goldfarb_center_virtual_events_post_selector');
+        $show_section_virtual_events = get_field('show_section_virtual_events');
 
         $virtual_events_post_data = [];
         $post_ids = [];
@@ -161,6 +167,7 @@ class TemplateAnnualReview extends Composer
         $student_leadership_title = get_field('student_leadership_title');
         $student_leadership_header = get_field('student_leadership_header');
         $student_leadership_text = get_field('student_leadership_text');
+        $show_section_student_leadership = get_field('show_section_student_leadership');
 
         $student_leadership_carousel_sub_field_data = [];
         if(have_rows('student_leadership_carousel') ) :
@@ -189,6 +196,7 @@ class TemplateAnnualReview extends Composer
         $student_internships_text = get_field('student_internships_text');
         $student_internships_stat_number = get_field('student_internships_stat_number');
         $student_internships_stat_caption = get_field('student_internships_stat_caption');
+        $show_section_student_internships = get_field('show_section_student_internships');
 
         $student_internships_list_sub_field_data = [];
         if(have_rows('student_internships_list') ) :
@@ -206,6 +214,7 @@ class TemplateAnnualReview extends Composer
         $franko_maisel_prize_text = get_field('franko_maisel_prize_text');
         $franko_maisel_prize_attiribution = get_field('franko_maisel_prize_attiribution');
         $franko_maisel_prize_attribution_caption = get_field('franko_maisel_prize_attribution_caption');
+        $show_section_franko_maisel = get_field('show_section_franko_maisel');
 
         $faculty_engagement_image = get_field('faculty_engagement_image');
         $faculty_engagement_title = get_field('faculty_engagement_title');
@@ -214,47 +223,50 @@ class TemplateAnnualReview extends Composer
         $faculty_engagement_attribution = get_field('faculty_engagement_attribution');
         $faculty_engagement_attribution_caption = get_field('faculty_engagement_attribution_caption');
         $faculty_engagement_research_posts = get_field('faculty_engagement_research_posts');
+        $show_section_faculty_engagement = get_field('show_section_faculty_engagement');
 
-        $faculty_engagement_research_posts_data = [];
-        $faculty_engagement_post_ids = [];
-        foreach( $faculty_engagement_research_posts as $post ) {
-            $faculty_engagement_post_ids[] = $post->ID;
-        }
-        // die(var_dump($faculty_engagement_post_ids));
-
-
-        $posts = get_posts(
-            [
-            'post_type' => "virtual-events",
-            'numberposts' => 8,
-            'post__in' => $faculty_engagement_post_ids,
-            'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash')
-            ]
-        );
-
-        foreach( $posts as $post ) {
-
-            $post_meta = get_post_meta($post->ID);
-
-            $cats = get_the_category($post->ID);
-            $lightbox_you_tube_embed_code = $post_meta['lightbox_you_tube_embed_code'];
-            $gf_event_date = $post_meta['gf_event_date'];
-
-            $post_row = ["original_post_data" => $post];
-
-            if ($cats) {
-                $post_row['cats'] = true;
-                $post_row['category_name'] = $cats[0]->name;
+        if ($faculty_engagement_research_posts) {
+            $faculty_engagement_research_posts_data = [];
+            $faculty_engagement_post_ids = [];
+            foreach( $faculty_engagement_research_posts as $post ) {
+                $faculty_engagement_post_ids[] = $post->ID;
             }
+            // die(var_dump($faculty_engagement_post_ids));
 
-            $post_row["the_title"] = $post->post_title;
-            $post_row["the_excerpt"] = $post->post_excerpt;
-            $post_row["the_content"] = $post->post_content;
-            $post_row["gf_event_date"] = $gf_event_date[0];
-            $post_row["lightbox_you_tube_embed_code"] = htmlspecialchars(json_encode($lightbox_you_tube_embed_code));
-            $post_row["secondary_excerpt"] = $post_meta["secondary_excerpt"][0];
 
-            $faculty_engagement_research_posts_data[] = $post_row;
+            $posts = get_posts(
+                [
+                'post_type' => "virtual-events",
+                'numberposts' => 8,
+                'post__in' => $faculty_engagement_post_ids,
+                'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash')
+                ]
+            );
+
+            foreach( $posts as $post ) {
+
+                $post_meta = get_post_meta($post->ID);
+
+                $cats = get_the_category($post->ID);
+                $lightbox_you_tube_embed_code = $post_meta['lightbox_you_tube_embed_code'];
+                $gf_event_date = $post_meta['gf_event_date'];
+
+                $post_row = ["original_post_data" => $post];
+
+                if ($cats) {
+                    $post_row['cats'] = true;
+                    $post_row['category_name'] = $cats[0]->name;
+                }
+
+                $post_row["the_title"] = $post->post_title;
+                $post_row["the_excerpt"] = $post->post_excerpt;
+                $post_row["the_content"] = $post->post_content;
+                $post_row["gf_event_date"] = $gf_event_date[0];
+                $post_row["lightbox_you_tube_embed_code"] = htmlspecialchars(json_encode($lightbox_you_tube_embed_code));
+                $post_row["secondary_excerpt"] = $post_meta["secondary_excerpt"][0];
+
+                $faculty_engagement_research_posts_data[] = $post_row;
+            }
         }
         // die(var_dump($faculty_engagement_research_posts_data));
 
@@ -265,6 +277,7 @@ class TemplateAnnualReview extends Composer
         $annual_theme_policy_symposium_sidebar_image = get_field('annual_theme_policy_symposium_sidebar_image');
         $annual_theme_policy_symposium_attribution = get_field('annual_theme_policy_symposium_attribution');
         $annual_theme_policy_symposium_attribution_caption = get_field('annual_theme_policy_symposium_attribution_caption');
+        $show_section_annual_theme_policy_symposium = get_field('show_section_annual_theme_policy_symposium');
 
         return [
             'data' => [
@@ -282,6 +295,7 @@ class TemplateAnnualReview extends Composer
                 "letter_section_image_attribution_title" => $letter_section_image_attribution_title,
                 "letter_section_image_attribution_text" => $letter_section_image_attribution_text,
                 "letter_section_text" => $letter_section_text,
+                "show_section_letter" => $show_section_letter,
 
                 // Annual Theme Overview Fields
                 "annual_theme_overview_title" => $annual_theme_overview_title,
@@ -291,7 +305,7 @@ class TemplateAnnualReview extends Composer
                 "annual_theme_overview_attribution_box_text" => $annual_theme_overview_attribution_box_text,
                 "annual_theme_overview_attribution_name" => $annual_theme_overview_attribution_name,
                 "annual_theme_overview_attribution_caption" => $annual_theme_overview_attribution_caption,
-
+                "show_section_annual_theme" => $show_section_annual_theme,
 
                 // Virtual Event Fields
                 "goldfarb_center_virtual_events_title" => $goldfarb_center_virtual_events_title,
@@ -301,6 +315,7 @@ class TemplateAnnualReview extends Composer
                 "goldfarb_center_virtual_events_carousel_sub_field_data" => $goldfarb_center_virtual_events_carousel_sub_field_data,
 
                 "virtual_events_post_data" => $virtual_events_post_data,
+                "show_section_virtual_events" => $show_section_virtual_events,
 
                 // Student Leadership Fields
                 "student_leadership_title" => $student_leadership_title,
@@ -309,13 +324,14 @@ class TemplateAnnualReview extends Composer
 
                 "student_leadership_carousel_sub_field_data" => $student_leadership_carousel_sub_field_data,
                 "student_leadership_info_block_sub_field_data" => $student_leadership_info_block_sub_field_data,
-
+                "show_section_student_leadership" => $show_section_student_leadership,
 
                 "student_internships_title" => $student_internships_title,
                 "student_internships_heading" => $student_internships_heading,
                 "student_internships_text" => $student_internships_text,
                 "student_internships_stat_number" => $student_internships_stat_number,
                 "student_internships_stat_caption" => $student_internships_stat_caption,
+                "show_section_student_internships" => $show_section_student_internships,
 
                 "student_internships_list_sub_field_data" => $student_internships_list_sub_field_data,
 
@@ -325,6 +341,7 @@ class TemplateAnnualReview extends Composer
                 "franko_maisel_prize_text" => $franko_maisel_prize_text,
                 "franko_maisel_prize_attiribution" => $franko_maisel_prize_attiribution,
                 "franko_maisel_prize_attribution_caption" => $franko_maisel_prize_attribution_caption,
+                "show_section_franko_maisel" => $show_section_franko_maisel,
 
                 "faculty_engagement_image" => $faculty_engagement_image,
                 "faculty_engagement_title" => $faculty_engagement_title,
@@ -332,7 +349,7 @@ class TemplateAnnualReview extends Composer
                 "faculty_engagement_text" => $faculty_engagement_text,
                 "faculty_engagement_attribution" => $faculty_engagement_attribution,
                 "faculty_engagement_attribution_caption" => $faculty_engagement_attribution_caption,
-
+                "show_section_faculty_engagement" => $show_section_faculty_engagement,
                 "faculty_engagement_research_posts_data" => $faculty_engagement_research_posts_data,
 
                 "annual_theme_policy_symposium_title" => $annual_theme_policy_symposium_title,
@@ -342,6 +359,7 @@ class TemplateAnnualReview extends Composer
                 "annual_theme_policy_symposium_sidebar_image" => $annual_theme_policy_symposium_sidebar_image,
                 "annual_theme_policy_symposium_attribution" => $annual_theme_policy_symposium_attribution,
                 "annual_theme_policy_symposium_attribution_caption" => $annual_theme_policy_symposium_attribution_caption,
+                "show_section_annual_theme_policy_symposium" => $show_section_annual_theme_policy_symposium,
 
                 "annual_theme_footer_address" => get_field('annual_theme_footer_address'),
                 "social_facebook" => get_field('annual_theme_facebook_url'),
@@ -349,13 +367,7 @@ class TemplateAnnualReview extends Composer
                 "social_twitter" => get_field('annual_theme_twitter_url'),
                 "social_you_tube" => get_field('annual_theme_you_tube_url'),
             ],
-            "socialData" => [
-                "annual_theme_footer_address" => get_field('annual_theme_footer_address'),
-                "social_facebook" => get_field('annual_theme_facebook_url'),
-                "social_instagram" => get_field('annual_theme_instagram_url'),
-                "social_twitter" => get_field('annual_theme_twitter_url'),
-                "social_you_tube" => get_field('annual_theme_you_tube_url'),
-            ]
+            
         ];
     }
 }

@@ -1,12 +1,35 @@
 <ul id="gf-nav-menu" class="gf-nav-menu">
-    <li class="gf-nav__item"><a href="#gf_image_text_section">Letter From The Executive Director</a></li>
-    <li class="gf-nav__item"><a href="#annual_overview">ANNUAL THEME OVERVIEW</a></li>
-    <li class="gf-nav__item"><a href="#virtual_events">2020-2021 GOLDFARB CENTER VIRTUAL EVENTS</a></li>
-    <li class="gf-nav__item"><a href="#gf_student_leadership">STUDENT LEADERSHIP</a></li>
-    <li class="gf-nav__item"><a href="#gf_student_internships">STUDENT INTERNSHIPS</a></li>
-    <li class="gf-nav__item"><a href="#gf_franko_maisel">FRANKO-MAISEL PRIZE</a></li>
-    <li class="gf-nav__item"><a href="#gf_faculty_engaugement">FACULTY ENGAGEMENT AND RESEARCH</a></li>
-    <li class="gf-nav__item"><a href="#policy_symposium">ANNUAL THEME & POLICY SYMPOSIUM</a></li>
+    @if ($data['show_section_letter'])
+    <li class="gf-nav__item"><a href="#gf_image_text_section">{{ $data['letter_section_title'] }}</a></li>
+    @endif
+
+    @if ($data['show_section_annual_theme'])
+    <li class="gf-nav__item"><a href="#annual_overview">{{ $data['annual_theme_overview_title'] }}</a></li>
+    @endif
+    
+    @if ($data['show_section_virtual_events'])
+    <li class="gf-nav__item"><a href="#virtual_events">{{ $data['goldfarb_center_virtual_events_title'] }}</a></li>
+    @endif
+
+    @if ($data['show_section_student_leadership'])
+    <li class="gf-nav__item"><a href="#gf_student_leadership">{{ $data['student_leadership_title'] }}</a></li>
+    @endif
+
+    @if ($data['show_section_student_internships'])
+    <li class="gf-nav__item"><a href="#gf_student_internships">{{ $data['student_internships_title'] }}</a></li>
+    @endif
+
+    @if ($data['show_section_franko_maisel'])
+    <li class="gf-nav__item"><a href="#gf_franko_maisel">{{ $data['franko_maisel_prize_title'] }}</a></li>
+    @endif
+
+    @if ($data['show_section_faculty_engagement'])
+    <li class="gf-nav__item"><a href="#gf_faculty_engaugement">{{ $data['faculty_engagement_title'] }}</a></li>
+    @endif
+    
+    @if ($data['show_section_annual_theme_policy_symposium'])
+    <li class="gf-nav__item"><a href="#policy_symposium">{{ $data['annual_theme_policy_symposium_title'] }}</a></li>
+    @endif
 </ul>
 <!-- Hamburger Nav Button -->
 <a href="#" id="gf-annual-report-nav-btn" class="gf-annual-report-nav-btn">
